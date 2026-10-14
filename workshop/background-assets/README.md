@@ -47,3 +47,7 @@ The owner selected original choices 1 (Oswald) and 5 (Neucha). Only those two ar
 
 headers.html adds three compositions: centered restaurant sign, compact row, and address-led panel. Each supports the two approved materials, both themes and Oswald/Neucha. The existing project logo and actual pork photo/price are reused without modification. Delivery minimum and pickup address match business-rules.json. Address entry remains in memory only and creates no order. Appearance and selected header are stored separately from the stable app. No stable preview files changed.
 
+## Assembled menu
+
+The address-led composition is the current priority. All three comparison logos now sit directly on the artwork with no rectangle. menu.html combines that header with the real 53-item catalog, existing menu search, favorites, cart, requested-weight dialog and staff functions. It uses a separate IndexedDB database, zharovnya-menu-workshop-v1, and no network order service. List styling is provisional; the product dialog design and descriptions remain the next stage. Existing photos, prices, artwork, logo file and frozen root preview are unchanged.
+

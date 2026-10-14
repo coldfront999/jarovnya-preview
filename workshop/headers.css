@@ -8,7 +8,7 @@
 .app-header{padding:26px 22px 22px;font-family:'Golos Text',sans-serif;color:var(--fg)}
 .header-row{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0}
 .town{font-size:13px;font-weight:500}
-.logo-shell{background:#fff6e7;padding:7px 9px;display:block;border-radius:2px;max-width:100%;flex-shrink:0}
+.logo-shell{background:transparent;padding:0;display:block;border-radius:0;max-width:100%;flex-shrink:0;position:relative}
 .logo-shell img{display:block;object-fit:contain;width:100%;height:auto}
 .phone-icon{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:50%;text-decoration:none}
 .phone-icon:hover{background:var(--surface)}
@@ -26,7 +26,7 @@
 .header-sign{border-bottom:1px solid var(--line)}
 .header-sign .logo-shell{width:246px;margin:20px auto 18px;padding:0;background:transparent;border-radius:0;position:relative}
 /* Reuse the logo's exact alpha outline; keep the colored flame untouched. */
-.phone.theme-dark .header-sign .logo-shell::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,var(--fg) 0 39%,transparent 39% 61%,var(--fg) 61% 100%);-webkit-mask:url('../brand/logo-reconstruction-unapproved.png') center / 100% 100% no-repeat;mask:url('../brand/logo-reconstruction-unapproved.png') center / 100% 100% no-repeat}
+.phone.theme-dark .logo-shell::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,var(--fg) 0 39%,transparent 39% 61%,var(--fg) 61% 100%);-webkit-mask:url('../brand/logo-reconstruction-unapproved.png') center / 100% 100% no-repeat;mask:url('../brand/logo-reconstruction-unapproved.png') center / 100% 100% no-repeat}
 .header-sign .location-button{border-top:1px solid var(--line)}
 .header-compact{padding-top:23px;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .header-compact .logo-shell{width:174px}
