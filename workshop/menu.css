@@ -97,3 +97,22 @@ html[data-theme=dark] .menu-copy h2,html[data-theme=dark] .menu-categories butto
 .bottom{isolation:isolate}
 html[data-material=craft] .bottom::before{content:'';position:absolute;inset:0;z-index:-1;background:url('background-assets/craft-paper.webp') top center / 440px 440px repeat;pointer-events:none}
 html[data-material=craft][data-theme=dark] .bottom::before{filter:invert(1) hue-rotate(180deg) brightness(.85)}
+
+/* Compact receiving controls and category navigation share the selected material. */
+.m-modes button{min-height:68px;padding:10px 6px;gap:7px}
+.m-modes button>span{display:flex;flex-direction:column;gap:5px;text-align:left}
+.m-modes strong{font-size:14px;font-weight:700}
+.m-modes small{font-size:11px;line-height:1.35;font-weight:400;color:inherit}
+.m-pickup-oven{bottom:86px}
+.menu-categories{position:relative;gap:8px;padding-top:8px;overflow-anchor:none;scroll-padding-inline:76px 24px}
+.menu-categories [data-category]{scroll-margin-inline:76px 24px;border:1px solid var(--line);border-radius:999px;padding:10px 15px;font-weight:700;color:var(--ink)}
+.menu-categories [data-category][aria-pressed=true]{border-color:var(--orange);background:var(--orange);color:var(--accent-ink)}
+html[data-theme=dark] .menu-categories [data-category][aria-pressed=true]{color:var(--accent-ink)}
+.menu-address-back{box-sizing:border-box;align-items:flex-start;padding:clamp(20px,8dvh,80px) 16px 16px;overscroll-behavior:contain}
+.menu-address-back .sheet{box-sizing:border-box;position:relative;border-radius:18px;max-height:calc(100dvh - 40px);padding-top:68px;animation:none}
+.menu-address-back .close{position:absolute;top:16px;right:16px;width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--ink)}
+.menu-address-back h2{margin-bottom:20px}
+.menu-address-back .field{display:grid;gap:8px}
+.menu-address-back .cta{margin-top:20px}
+.menu-cart-flight{position:fixed;z-index:100;pointer-events:none;width:72px;height:72px;object-fit:cover;border-radius:50%;border:2px solid var(--orange);box-shadow:0 6px 16px #0003}
+@media(prefers-reduced-motion:reduce){.menu-cart-flight{display:none}.sheet{animation:none}}
