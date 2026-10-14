@@ -24,15 +24,36 @@ body:not([data-role=customer]) .menu-studio{display:block;max-width:1220px}body:
 @media(max-width:375px){.m-header{padding-left:18px;padding-right:18px}.menu-timing,.menu-heading,.menu-categories{padding-left:18px;padding-right:18px}.menu-search{margin-left:18px;margin-right:18px}.menu-list,.grid{padding-left:18px;padding-right:18px}.menu-photo{flex-basis:108px}.menu-dish{gap:13px}.menu-copy h2{font-size:15px}.menu-price{font-size:15px}.m-ticket{padding-left:13px;padding-right:13px}.m-logo{width:174px}.menu-heading h1{font-size:30px}.menu-heading>span{font-size:11px}}
 
 /* One continuous menu surface; the oven rises from behind its top edge. */
-.menu-catalog-wrap{position:relative;isolation:isolate;margin-top:72px}
-.menu-catalog{position:relative;background:var(--paper);border-top:1px solid var(--line);border-radius:18px 18px 0 0;padding-top:9px}
-.menu-oven{position:absolute;z-index:-1;width:176px;height:auto;right:-13px;top:-111px;pointer-events:none}
+.menu-search-scene{position:relative;isolation:isolate;min-height:194px;margin:6px 24px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-end;padding-bottom:8px}
+.menu-search-scene::before{content:'';position:absolute;inset:-6px -24px 0;z-index:-1;background-size:440px auto;background-position:top center;pointer-events:none}
+html[data-material=craft] .menu-search-scene::before{background-image:url('background-assets/craft.webp')}
+html[data-material=urban] .menu-search-scene::before{background-image:url('background-assets/urban.webp')}
+html[data-material=craft][data-theme=dark] .menu-search-scene::before{filter:invert(1) hue-rotate(180deg) brightness(.85)}
+html[data-material=urban][data-theme=light] .menu-search-scene::before{filter:invert(1) hue-rotate(180deg)}
+.menu-search-scene .menu-search{position:relative;width:calc(100% - 152px);margin:0;border:0;padding:0}
+.menu-catalog-wrap{position:relative;margin-top:0}
+.menu-catalog{position:relative;background:var(--paper);padding-top:9px}
+.menu-oven{position:absolute;width:154px;height:auto;right:-10px;bottom:10px;pointer-events:none}
 html[data-theme=dark] .menu-oven{filter:invert(1) hue-rotate(180deg) brightness(.9)}
 .menu-heading,.menu-categories,.menu-list,.photo-note{background:transparent}
-.menu-categories{border-radius:18px 18px 0 0}
+.menu-categories{border-radius:0}
 .m-modes button{display:flex;justify-content:center;align-items:center;gap:9px}
 .staff-shell{color:var(--ink)}
 .menu-copy h2,.menu-price,.menu-copy small{background:transparent}
 .menu-categories button{color:var(--ink)}
 
 .photo-note>span{background:var(--paper);background:color-mix(in srgb,var(--paper) 88%,transparent);box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.m-profile{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--paper);color:var(--ink);flex-shrink:0}
+.m-profile:hover{background:var(--soft)}
+.menu-list,.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 14px;padding-top:20px}
+.menu-dish{flex-direction:column;gap:12px;padding:0 0 18px;min-width:0}
+.menu-photo{width:100%;flex:0 0 auto;align-self:stretch}
+.menu-copy{display:flex;flex-direction:column;min-width:0;flex:1}
+.menu-copy h2{min-height:42px;font-size:15px;line-height:1.4;overflow-wrap:anywhere}
+.menu-copy small{min-height:32px}
+.menu-price{font-size:16px}
+.menu-add{justify-content:center;width:100%;margin-top:10px}
+.menu-empty{grid-column:1/-1}
+.bottom .nav-contact{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:20%;min-height:50px;color:var(--muted);text-decoration:none}
+.bottom .nav-contact:hover{color:var(--ink)}
+@media(max-width:375px){.menu-search-scene{margin-left:18px;margin-right:18px}.menu-search-scene::before{left:-18px;right:-18px}.menu-search-scene .menu-search{width:calc(100% - 139px)}.menu-oven{width:142px}.menu-list,.grid{gap:22px 12px}.menu-photo{flex-basis:auto}.menu-copy h2{font-size:14px;min-height:40px}.menu-price{font-size:15px}.menu-add{font-size:12px;padding-left:8px;padding-right:8px;gap:6px}}
