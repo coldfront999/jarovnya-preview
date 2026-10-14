@@ -103,14 +103,16 @@ document.addEventListener('click',event=>{
 
 const menuOriginalCartLine=cartLine;
 cartLine=function(l,remove=true){
-  const html=menuOriginalCartLine(l,remove).replace(l.qty+' шт · шт',l.qty+' шт');if(!remove||state.page!=='cart'||l.unit==='100g')return html;
+  let html=menuOriginalCartLine(l,remove).replace(l.qty+' шт · шт',l.qty+' шт');if(!remove||state.page!=='cart')return html;
+  html=html.replace('<div style="margin-top:8px">','<div class="menu-cart-summary">');
+  if(l.unit==='100g')return html;
   const name=escapeHTML(l.name),id=escapeHTML(l.lineId);
-  const stepper='<div class="menu-cart-controls"><div class="menu-quantity" role="group" aria-label="Количество: '+name+'">'
+  const stepper='<div class="menu-quantity" role="group" aria-label="Количество: '+name+'">'
     +'<button type="button" data-menu-quantity="'+id+'" data-change="-1" aria-label="Уменьшить количество: '+name+'">'+icon('minus',18)+'</button>'
     +'<output aria-live="polite" aria-label="Количество: '+name+'">'+l.qty+'</output>'
-    +'<button type="button" data-menu-quantity="'+id+'" data-change="1" aria-label="Увеличить количество: '+name+'" '+(l.qty>=50?'disabled':'')+'>'+icon('plus',18)+'</button></div>'
-    +(l.id.startsWith('shawarma-')||menuIsLavash(l)?'<button class="menu-cart-edit" data-menu-edit="'+id+'" aria-label="Настроить: '+name+'">'+(menuIsLavash(l)?'Изменить вес':'Добавки и соус')+'</button>':'')+'</div>';
-  return html.replace('<div style="margin-top:8px">',stepper+'<div style="margin-top:8px">');
+    +'<button type="button" data-menu-quantity="'+id+'" data-change="1" aria-label="Увеличить количество: '+name+'" '+(l.qty>=50?'disabled':'')+'>'+icon('plus',18)+'</button></div>';
+  const edit=l.id.startsWith('shawarma-')||menuIsLavash(l)?'<button class="menu-cart-edit" data-menu-edit="'+id+'" aria-label="Настроить: '+name+'">'+(menuIsLavash(l)?'Изменить вес':'Добавки и соус')+'</button>':'';
+  return html.replace('<div class="menu-cart-summary">','<div class="menu-cart-summary">'+stepper).replace('</strong></div></div>','</strong></div>'+edit+'</div>');
 };
 let menuEditingLineId=null;
 const menuCloseBeforeEdit=closeModal;

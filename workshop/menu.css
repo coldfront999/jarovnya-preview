@@ -117,10 +117,17 @@ html[data-theme=dark] .menu-categories [data-category][aria-pressed=true]{color:
 .menu-cart-flight{position:fixed;z-index:100;pointer-events:none;width:72px;height:72px;object-fit:cover;border-radius:50%;border:2px solid var(--orange);box-shadow:0 6px 16px #0003}
 @media(prefers-reduced-motion:reduce){html:not([data-cart-motion=flight]) .menu-cart-flight{display:none}.sheet{animation:none}}
 
-.menu-cart-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
-.menu-quantity{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--paper);color:var(--ink)}
-.menu-quantity button{display:grid;place-items:center;width:44px;height:44px;background:transparent;color:var(--ink)}
-.menu-quantity button:hover{background:var(--soft)}
-.menu-quantity output{min-width:26px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+.menu-cart-summary{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;min-height:44px}
+.menu-cart-summary>strong{margin-left:auto;text-align:right;flex-shrink:0}
+.menu-quantity{position:relative;isolation:isolate;display:flex;align-items:center;flex-shrink:0;min-height:44px;color:var(--ink)}
+.menu-quantity::before{content:'';position:absolute;inset:7px 0;border:1px solid var(--line);border-radius:999px;background:var(--paper);z-index:-1}
+.menu-quantity button{position:relative;display:grid;place-items:center;width:36px;height:44px;padding:0;background:transparent;color:var(--ink);border-radius:999px}
+.menu-quantity button::before{content:'';position:absolute;inset:0 -4px}
+.menu-quantity button:hover{color:var(--orange)}
+.menu-quantity .ui-icon{width:16px;height:16px}
+.menu-quantity output{min-width:18px;text-align:center;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+body[data-role=customer][data-page=cart] .cartline{position:relative;padding-bottom:14px}
+body[data-role=customer][data-page=cart] .line-info h3{padding-right:30px}
+body[data-role=customer][data-page=cart] .cartline>.remove{position:absolute;right:-10px;top:-10px;width:44px;height:44px;padding:0;color:var(--muted)}
 .menu-cart-edit{min-height:44px;padding:8px 0;background:transparent;color:var(--ink);font-size:12px;text-decoration:underline;text-underline-offset:4px}
 .menu-cart-edit:hover{color:var(--orange)}
