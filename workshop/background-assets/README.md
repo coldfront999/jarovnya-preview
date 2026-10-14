@@ -15,3 +15,19 @@ Edit the supplied restaurant app concept collage into ONE clean portrait backgro
 Oswald, Caveat, Russo One and Golos Text are self-hosted from the official google/fonts repository, each with its accompanying SIL Open Font License. Exact original filenames: ofl/oswald/Oswald[wght].ttf, ofl/caveat/Caveat[wght].ttf, ofl/russoone/RussoOne-Regular.ttf, ofl/golostext/GolosText[wght].ttf. Source: https://github.com/google/fonts. All four families declare Cyrillic support in their official METADATA.pb files.
 
 The study is isolated under workshop/. It does not create orders, register a service worker, or change the stable three-theme preview.
+
+## Ten additional font choices
+
+Verified official METADATA.pb: Cyrillic subset and OFL license for every family. Original font file and license are self-hosted; exact sources are recorded in fonts/extra-fonts.json.
+
+- Amatic SC: https://raw.githubusercontent.com/google/fonts/main/ofl/amaticsc/AmaticSC-Bold.ttf
+- Neucha: https://raw.githubusercontent.com/google/fonts/main/ofl/neucha/Neucha.ttf
+- Marck Script: https://raw.githubusercontent.com/google/fonts/main/ofl/marckscript/MarckScript-Regular.ttf
+- Lobster: https://raw.githubusercontent.com/google/fonts/main/ofl/lobster/Lobster-Regular.ttf
+- Pangolin: https://raw.githubusercontent.com/google/fonts/main/ofl/pangolin/Pangolin-Regular.ttf
+- Stalinist One: https://raw.githubusercontent.com/google/fonts/main/ofl/stalinistone/StalinistOne-Regular.ttf
+- Rubik Mono One: https://raw.githubusercontent.com/google/fonts/main/ofl/rubikmonoone/RubikMonoOne-Regular.ttf
+- Unbounded: https://raw.githubusercontent.com/google/fonts/main/ofl/unbounded/Unbounded%5Bwght%5D.ttf
+- Yeseva One: https://raw.githubusercontent.com/google/fonts/main/ofl/yesevaone/YesevaOne-Regular.ttf
+- Podkova: https://raw.githubusercontent.com/google/fonts/main/ofl/podkova/Podkova%5Bwght%5D.ttf
+
