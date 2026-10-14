@@ -23,9 +23,15 @@ body:not([data-role=customer]) .menu-studio{display:block;max-width:1220px}body:
 @media(max-width:900px){.menu-studio{display:block;margin:0;padding:0}.menu-settings{position:static;max-width:440px;margin:0 auto;padding:12px 18px}.studio-back{margin-bottom:0;font-size:13px}.menu-settings>p{font-size:12px;margin:10px 0 0}.app-stage{max-width:440px;margin:auto}.shell{border-radius:0;border-left:0;border-right:0}.bottom{left:50%;width:min(440px,100%)}.appearance-settings{padding:0;border-top:0}.appearance-settings summary{min-height:44px}.m-header{padding-top:23px}}
 @media(max-width:375px){.m-header{padding-left:18px;padding-right:18px}.menu-timing,.menu-heading,.menu-categories{padding-left:18px;padding-right:18px}.menu-search{margin-left:18px;margin-right:18px}.menu-list,.grid{padding-left:18px;padding-right:18px}.menu-photo{flex-basis:108px}.menu-dish{gap:13px}.menu-copy h2{font-size:15px}.menu-price{font-size:15px}.m-ticket{padding-left:13px;padding-right:13px}.m-logo{width:174px}.menu-heading h1{font-size:30px}.menu-heading>span{font-size:11px}}
 
-/* Keep the artwork around navigation and a calm surface beneath the dishes. */
-.menu-heading,.menu-categories,.photo-note{background:transparent}
-.menu-list{background:var(--paper);background:color-mix(in srgb,var(--paper) 94%,transparent)}
+/* One continuous menu surface; the oven rises from behind its top edge. */
+.menu-catalog-wrap{position:relative;isolation:isolate;margin-top:72px}
+.menu-catalog{position:relative;background:var(--paper);border-top:1px solid var(--line);border-radius:18px 18px 0 0;padding-top:9px}
+.menu-oven{position:absolute;z-index:-1;width:176px;height:auto;right:-13px;top:-111px;pointer-events:none}
+html[data-theme=dark] .menu-oven{filter:invert(1) hue-rotate(180deg) brightness(.9)}
+.menu-heading,.menu-categories,.menu-list,.photo-note{background:transparent}
+.menu-categories{border-radius:18px 18px 0 0}
+.m-modes button{display:flex;justify-content:center;align-items:center;gap:9px}
+.staff-shell{color:var(--ink)}
 .menu-copy h2,.menu-price,.menu-copy small{background:transparent}
 .menu-categories button{color:var(--ink)}
 

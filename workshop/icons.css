@@ -1,0 +1,9 @@
+.ui-icon{display:inline-block;flex-shrink:0;vertical-align:middle;overflow:visible}
+.ui-icon path[opacity]{opacity:.16}
+.bottom button.active .ui-icon path[opacity],button[aria-pressed=true] .ui-icon path[opacity],.favorite.on .ui-icon path[opacity]{opacity:.32}
+.staff-side>button,.weight-entry button,.switch{display:flex;align-items:center;gap:9px;justify-content:flex-start}
+.switch{min-width:122px;justify-content:center}
+.staff-side>button .ui-icon{flex-shrink:0}
+.weight-entry button{justify-content:center}
+.order-card h2>.ui-icon{margin-right:6px}
+.plus,.remove,.close{display:inline-flex;align-items:center;justify-content:center}

@@ -16,8 +16,7 @@ try{
 }catch{}
 const requestedHeader=new URLSearchParams(window.location.search).get('header');
 if(Object.hasOwn(names.header,requestedHeader))state.header=requestedHeader;
-const paths={phone:'M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7l.4 2.8a2 2 0 0 1-.6 1.8L8.6 10.6a16 16 0 0 0 4.8 4.8l1.3-1.3a2 2 0 0 1 1.8-.6l2.8.4a2 2 0 0 1 1.7 2z',pin:'M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0z M15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0',arrow:'m9 5 7 7-7 7'};
-function icon(name){return '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+paths[name]+'"/></svg>';}
+function icon(name){return jarovnyaIcon(name,22);}
 function logo(){return '<span class="logo-shell"><img src="../brand/logo-reconstruction-unapproved.png" alt="Жаровня" width="2172" height="724"></span>';}
 function call(){return '<a class="phone-icon" href="tel:+73493660009" aria-label="Позвонить в Жаровню">'+icon('phone')+'</a>';}
 function modes(){return '<div class="receive-controls" role="group" aria-label="Способ получения"><button data-mode="delivery" aria-pressed="'+(state.mode==='delivery')+'">Доставка</button><button data-mode="pickup" aria-pressed="'+(state.mode==='pickup')+'">Самовывоз</button></div>';}
@@ -60,4 +59,3 @@ document.getElementById('previous-header').addEventListener('click',()=>stepHead
 document.getElementById('next-header').addEventListener('click',()=>stepHeader(1));
 document.getElementById('quick-header-theme').addEventListener('click',()=>{closeAddress(false);state.theme=state.theme==='dark'?'light':'dark';update();});
 update();
-
