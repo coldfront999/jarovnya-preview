@@ -1,6 +1,15 @@
 // Reuse the existing catalog, order rules, product dialog, cart, and staff screens.
 const menuAppearance={material:'urban',theme:'dark',font:'oswald',header:'compact'};
 let menuSearchOpen=false;
+const menuCartMotionKey='jarovnya-workshop-cart-motion-v1';
+let menuCartMotion='auto';
+try{const saved=localStorage.getItem(menuCartMotionKey);if(['auto','flight','quiet'].includes(saved))menuCartMotion=saved;}catch{}
+const linkedCartMotion=new URLSearchParams(location.search).get('cartMotion');
+if(['auto','flight','quiet'].includes(linkedCartMotion))menuCartMotion=linkedCartMotion;
+function applyMenuCartMotion(){document.documentElement.dataset.cartMotion=menuCartMotion;const control=document.getElementById('menu-cart-motion-select');if(control)control.value=menuCartMotion;try{localStorage.setItem(menuCartMotionKey,menuCartMotion);}catch{}}
+applyMenuCartMotion();
+document.addEventListener('change',event=>{if(event.target.id!=='menu-cart-motion-select'||!['auto','flight','quiet'].includes(event.target.value))return;menuCartMotion=event.target.value;applyMenuCartMotion();const url=new URL(location.href);url.searchParams.set('cartMotion',menuCartMotion);history.replaceState(null,'',url);if(menuCartMotion==='quiet')document.querySelectorAll('.menu-cart-flight').forEach(el=>el.remove());});
+
 const menuAppearanceKey='jarovnya-workshop-appearance-v1';
 const menuHeaderPreferenceKey='jarovnya-assembled-menu-header-v1';
 const menuChoices={material:['craft','urban'],theme:['light','dark'],font:['oswald','neucha'],header:['compact']};
@@ -54,7 +63,7 @@ function menuFlyToCart(picture){
   const target=document.querySelector('.bottom [data-page=cart]');if(!target||document.hidden)return;
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const receipt=()=>target.animate([{opacity:.5},{opacity:1}],{duration:220,easing:'ease-out'});
-  if(reduced||!picture.src){receipt();return;}
+  if(menuCartMotion==='quiet'||(menuCartMotion==='auto'&&reduced)||!picture.src){receipt();return;}
   document.querySelectorAll('.menu-cart-flight').forEach(el=>el.remove());
   const destination=target.getBoundingClientRect(),size=72;
   const startX=picture.rect.left+picture.rect.width/2-size/2;
@@ -66,8 +75,9 @@ function menuFlyToCart(picture){
   const animation=flight.animate([
     {transform:'translate(0,0) scale(1)',opacity:1},
     {transform:'translate('+x*.45+'px,'+(y*.3-45)+'px) scale(.82)',opacity:1,offset:.4},
+    {transform:'translate('+x*.9+'px,'+y*.85+'px) scale(.5)',opacity:1,offset:.82},
     {transform:'translate('+x+'px,'+y+'px) scale(.18)',opacity:0}
-  ],{duration:580,easing:'cubic-bezier(.16,1,.3,1)'});
+  ],{duration:720,easing:'cubic-bezier(.3,0,.65,1)'});
   animation.finished.then(()=>{flight.remove();receipt();},()=>flight.remove());
 }
 
