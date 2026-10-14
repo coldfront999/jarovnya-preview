@@ -31,3 +31,7 @@ Verified official METADATA.pb: Cyrillic subset and OFL license for every family.
 - Yeseva One: https://raw.githubusercontent.com/google/fonts/main/ofl/yesevaone/YesevaOne-Regular.ttf
 - Podkova: https://raw.githubusercontent.com/google/fonts/main/ofl/podkova/Podkova%5Bwght%5D.ttf
 
+## Third background restored
+
+At the owner's request, restored the original craft-paper and oven illustration as a third selectable mockup on 14 October 2026. The existing generated PNG is exported unchanged to craft.webp. All thirteen font choices work across all three backgrounds. No stable preview files changed.
+

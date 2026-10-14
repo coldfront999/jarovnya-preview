@@ -3,7 +3,7 @@ const content=document.getElementById('preview-content');
 const panel=document.getElementById('menu-panel');
 const openButton=document.getElementById('open-menu');
 const closeButton=document.getElementById('close-menu');
-const backgrounds={urban:'Уголь',poster:'Плакат'};
+const backgrounds={craft:'Крафт',urban:'Уголь',poster:'Плакат'};
 const fonts={"oswald": "Oswald", "caveat": "Caveat", "russo": "Russo One", "amaticsc": "Amatic SC", "neucha": "Neucha", "marckscript": "Marck Script", "lobster": "Lobster", "pangolin": "Pangolin", "stalinistone": "Stalinist One", "rubikmonoone": "Rubik Mono One", "unbounded": "Unbounded", "yesevaone": "Yeseva One", "podkova": "Podkova"};
 const fontIds=Object.keys(fonts);
 let background='urban',font='oswald';
