@@ -116,3 +116,11 @@ html[data-theme=dark] .menu-categories [data-category][aria-pressed=true]{color:
 .menu-address-back .cta{margin-top:20px}
 .menu-cart-flight{position:fixed;z-index:100;pointer-events:none;width:72px;height:72px;object-fit:cover;border-radius:50%;border:2px solid var(--orange);box-shadow:0 6px 16px #0003}
 @media(prefers-reduced-motion:reduce){.menu-cart-flight{display:none}.sheet{animation:none}}
+
+.menu-cart-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+.menu-quantity{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--paper);color:var(--ink)}
+.menu-quantity button{display:grid;place-items:center;width:44px;height:44px;background:transparent;color:var(--ink)}
+.menu-quantity button:hover{background:var(--soft)}
+.menu-quantity output{min-width:26px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+.menu-cart-edit{min-height:44px;padding:8px 0;background:transparent;color:var(--ink);font-size:12px;text-decoration:underline;text-underline-offset:4px}
+.menu-cart-edit:hover{color:var(--orange)}
