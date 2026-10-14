@@ -79,3 +79,14 @@ html[data-theme=light] .bottom button,html[data-theme=light] .bottom .nav-contac
 .menu-categories .menu-search-toggle[aria-expanded=true]{border-color:var(--orange);color:var(--orange)}
 .menu-search-scene[hidden]{display:none}
 @media(max-width:375px){.menu-price{padding:7px 10px}}
+.menu-dish{cursor:pointer}
+.menu-price{margin-bottom:0}
+html[data-theme=dark] .menu-copy h2,html[data-theme=dark] .menu-categories button,html[data-theme=dark] .line-info h3,html[data-theme=dark] .sheet h2{color:#fff;font-weight:700}
+.menu-lavash-options{border:0;margin:20px 0;padding:0;min-width:0;color:var(--ink)}
+.menu-lavash-options legend{font-size:15px;font-weight:600;margin-bottom:10px}
+.menu-lavash-options>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.menu-lavash-options button{min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);padding:12px;font-size:15px}
+.menu-lavash-options button[aria-pressed=true]{border:2px solid var(--orange);background:var(--soft);padding:11px}
+.menu-lavash-options button:disabled{color:var(--muted);background:var(--paper);border-style:dashed}
+.menu-lavash-options small{font-size:12px}
+.menu-availability{color:var(--muted);margin-top:9px}
