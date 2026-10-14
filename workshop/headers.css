@@ -24,7 +24,9 @@
 .location-button:hover{color:var(--fg);text-decoration:underline;text-underline-offset:4px}
 .delivery-rule{font-size:12px;line-height:1.5;margin:12px 0 0;color:var(--fg)}
 .header-sign{border-bottom:1px solid var(--line)}
-.header-sign .logo-shell{width:246px;margin:20px auto 18px}
+.header-sign .logo-shell{width:246px;margin:20px auto 18px;padding:0;background:transparent;border-radius:0;position:relative}
+/* Reuse the logo's exact alpha outline; keep the colored flame untouched. */
+.phone.theme-dark .header-sign .logo-shell::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,var(--fg) 0 39%,transparent 39% 61%,var(--fg) 61% 100%);-webkit-mask:url('../brand/logo-reconstruction-unapproved.png') center / 100% 100% no-repeat;mask:url('../brand/logo-reconstruction-unapproved.png') center / 100% 100% no-repeat}
 .header-sign .location-button{border-top:1px solid var(--line)}
 .header-compact{padding-top:23px;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .header-compact .logo-shell{width:174px}
