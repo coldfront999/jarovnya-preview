@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru" data-palette="cherry" data-theme="light" data-material="craft">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'">
+  <title>Жаровня — оттенки красного</title>
+  <link rel="stylesheet" href="colors.css?v=red-palettes"><link rel="stylesheet" href="icons.css?v=menu-pairs">
+</head>
+<body>
+<main class="palette-studio">
+  <section class="palette-settings" aria-label="Выбор палитры">
+    <a href="menu.html?v=red-palettes&cartMotion=flight" class="back-link">К приложению</a>
+    <h1>Выбираем красный</h1>
+    <p>Шесть красных оттенков для выбранных категорий, кнопок, овалов и итоговой суммы. Фотографии, логотип и фон сохраняем.</p>
+    <div class="palette-options" role="group" aria-label="Цвет интерфейса">
+      <button data-palette-choice="cherry" aria-pressed="true"><i class="swatch cherry" aria-hidden="true"></i><span>Вишнёвый</span></button>
+      <button data-palette-choice="scarlet" aria-pressed="false"><i class="swatch scarlet" aria-hidden="true"></i><span>Алый</span></button>
+      <button data-palette-choice="ruby" aria-pressed="false"><i class="swatch ruby" aria-hidden="true"></i><span>Рубиновый</span></button>
+      <button data-palette-choice="cranberry" aria-pressed="false"><i class="swatch cranberry" aria-hidden="true"></i><span>Клюквенный</span></button>
+      <button data-palette-choice="bordeaux" aria-pressed="false"><i class="swatch bordeaux" aria-hidden="true"></i><span>Бордовый</span></button>
+      <button data-palette-choice="wine" aria-pressed="false"><i class="swatch wine" aria-hidden="true"></i><span>Тёмно-винный</span></button>
+    </div>
+    <div class="preview-settings">
+      <label>Фон<select id="palette-material"><option value="craft">Крафт</option><option value="urban">Уголь</option></select></label>
+      <label>Тема<select id="palette-theme"><option value="light">Светлая</option><option value="dark">Тёмная</option></select></label>
+    </div>
+    <p id="palette-description">Вишнёвый акцент, лёгкая ягодная подложка и чёткая обводка цен.</p>
+    <dl class="color-roles"><div><dt>Акцент</dt><dd id="accent-code">#A1263C</dd></div><div><dt>Подложка итогов</dt><dd id="surface-code">#F8E6EA</dd></div></dl>
+    <p class="preview-note">Образец цветов. Основную палитру приложения выберем после сравнения.</p>
+  </section>
+  <div class="sample-stage"><div class="palette-toolbar"><label>Палитра в примере<select id="palette-select"><option value="cherry">Вишнёвый</option><option value="scarlet">Алый</option><option value="ruby">Рубиновый</option><option value="cranberry">Клюквенный</option><option value="bordeaux">Бордовый</option><option value="wine">Тёмно-винный</option></select></label></div>
+  <section class="color-sample" aria-label="Пример меню и корзины">
+    <header class="sample-header"><span class="sample-logo"><img src="../brand/logo-reconstruction-unapproved.png" alt="Жаровня" width="2172" height="724"></span><span class="sample-profile" data-preview-icon="user" aria-hidden="true"></span></header>
+    <div class="sample-modes" role="group" aria-label="Пример способа получения">
+      <button aria-pressed="true"><span data-preview-icon="truck" aria-hidden="true"></span><span>Доставка<small>Около 60 минут</small></span></button>
+      <button aria-pressed="false"><span data-preview-icon="store" aria-hidden="true"></span><span>Самовывоз<small>Без минимальной суммы</small></span></button>
+    </div>
+    <nav class="sample-categories" aria-label="Пример выбранной категории"><button aria-pressed="true">Популярное</button><button aria-pressed="false">Мангал</button><button aria-pressed="false">Шаурма</button></nav>
+    <h2>С огня к столу</h2>
+    <div class="sample-dishes">
+      <article><img src="../photos/pork.webp" alt="Шашлык из свиной шеи" width="1024" height="1024"><h3>Шашлык из свиной шеи</h3><span class="sample-price">от 199 ₽</span></article>
+      <article><img src="../photos/shawarma-chicken.webp" alt="Шаурма с курицей" width="1024" height="1024"><h3>Шаурма с курицей</h3><span class="sample-price">340 ₽</span></article>
+    </div>
+    <h2 class="cart-heading">Корзина</h2>
+    <article class="sample-cart-line">
+      <img src="../photos/shawarma-chicken.webp" alt="" width="1024" height="1024">
+      <div><h3>Шаурма с курицей</h3><div class="sample-cart-row"><div class="sample-quantity" role="group" aria-label="Количество в примере"><button data-preview-quantity="-1" aria-label="Уменьшить количество"><span data-preview-icon="minus" aria-hidden="true"></span></button><output id="preview-quantity" aria-live="polite">3</output><button data-preview-quantity="1" aria-label="Увеличить количество"><span data-preview-icon="plus" aria-hidden="true"></span></button></div><strong id="line-price" class="sample-price">1 020 ₽</strong></div></div>
+    </article>
+    <div class="sample-summary"><div><span>Блюда</span><span id="subtotal">1 020 ₽</span></div><div><span>Доставка</span><span id="delivery-price">150 ₽</span></div><div class="sample-total"><strong>К оплате</strong><strong id="total">1 170 ₽</strong></div></div>
+    <div class="sample-action" aria-label="Пример кнопки оформления">Оформить заказ</div>
+  </section></div>
+</main>
+<script src="icons.js?v=menu-pairs"></script><script src="colors.js?v=red-palettes"></script>
+</body>
+</html>

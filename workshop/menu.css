@@ -125,9 +125,34 @@ html[data-theme=dark] .menu-categories [data-category][aria-pressed=true]{color:
 .menu-quantity button::before{content:'';position:absolute;inset:0 -4px}
 .menu-quantity button:hover{color:var(--orange)}
 .menu-quantity .ui-icon{width:16px;height:16px}
+.menu-quantity .ui-icon [opacity]{display:none}
+.menu-quantity button{-webkit-tap-highlight-color:transparent;box-shadow:none}
+.menu-quantity button:disabled{background:transparent;color:var(--muted);opacity:.45}
 .menu-quantity output{min-width:18px;text-align:center;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
 body[data-role=customer][data-page=cart] .cartline{position:relative;padding-bottom:14px}
 body[data-role=customer][data-page=cart] .line-info h3{padding-right:30px}
 body[data-role=customer][data-page=cart] .cartline>.remove{position:absolute;right:-10px;top:-10px;width:44px;height:44px;padding:0;color:var(--muted)}
 .menu-cart-edit{min-height:44px;padding:8px 0;background:transparent;color:var(--ink);font-size:12px;text-decoration:underline;text-underline-offset:4px}
 .menu-cart-edit:hover{color:var(--orange)}
+
+/* Owner-selected wine palette, composed separately for light and dark surfaces. */
+:root{--orange:#B57991;--accent-ink:#230E18;--soft:#261A22;--palette-surface:#261A22;--palette-ink:#F5EDF2;--palette-muted:#D2BFCA;--palette-outline:#B57991}
+html[data-theme=light]{--orange:#4D2130;--accent-ink:#fff;--soft:#E9DFE3;--palette-surface:#E9DFE3;--palette-ink:#2A1B22;--palette-muted:#5D414E;--palette-outline:#4D2130}
+body:not([data-role=customer]) .app-stage{--orange:#4D2130;--accent-ink:#fff;--soft:#E9DFE3;--palette-surface:#E9DFE3;--palette-ink:#2A1B22;--palette-muted:#5D414E;--palette-outline:#4D2130}
+.menu-price,.line-info strong,.extra-card strong,.product-unit{border-color:var(--palette-outline);border-width:1.5px;background:var(--palette-surface);color:var(--palette-ink)}
+.menu-quantity{color:var(--palette-ink)}
+.menu-quantity::before{background:var(--palette-surface);border-color:var(--palette-outline);border-width:1.5px}
+.m-modes button{background:var(--palette-surface);border-color:var(--palette-outline);color:var(--palette-ink)}
+.menu-categories [data-category],.menu-categories .menu-search-toggle{border-color:var(--palette-outline)}
+body[data-role=customer] .panel:has(.summary){background:var(--palette-surface);border-color:var(--palette-outline);color:var(--palette-ink)}
+body[data-role=customer] .summary{background:transparent;color:var(--palette-ink)}
+body[data-role=customer] .panel:has(.summary) .muted{color:var(--palette-muted)}
+.cta{background:var(--orange);color:var(--accent-ink)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline-color:var(--palette-outline)}
+.menu-settings :focus-visible{outline-color:#4D2130}
+::selection{background:var(--palette-outline);color:var(--accent-ink)}
+
+/* Search belongs to the beginning of the scrollable category list. */
+.menu-categories{scroll-padding-inline:24px}
+.menu-categories [data-category]{scroll-margin-inline:24px}
+.menu-categories .menu-search-toggle{position:static;left:auto;z-index:auto}
