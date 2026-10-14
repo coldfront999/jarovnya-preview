@@ -4,10 +4,10 @@ const sheet=document.getElementById('address-sheet');
 const addressInput=document.getElementById('demo-address');
 const appearanceKey='jarovnya-workshop-appearance-v1';
 const headerKey='jarovnya-workshop-header-v1';
-const names={background:{craft:'Крафт',urban:'Уголь'},theme:{light:'Светлая',dark:'Тёмная'},font:{oswald:'Oswald',neucha:'Neucha'},header:{sign:'Вывеска',compact:'Компактная',address:'Адресная'}};
-const descriptions={sign:'Логотип как вывеска ресторана. Адрес и получение идут ниже.',compact:'Короткая шапка: меню начинается раньше, основные действия рядом.',address:'Адрес и способ получения собраны в одной панели, отдельно от логотипа.'};
+const names={background:{craft:'Крафт',urban:'Уголь'},theme:{light:'Светлая',dark:'Тёмная'},font:{oswald:'Oswald',neucha:'Neucha'},header:{compact:'Компактная'}};
+const descriptions={compact:'Короткая шапка: меню начинается раньше, основные действия рядом.'};
 const headerIds=Object.keys(names.header);
-const state={background:'urban',theme:'dark',font:'oswald',header:'sign',mode:'delivery',address:''};
+const state={background:'urban',theme:'dark',font:'oswald',header:'compact',mode:'delivery',address:''};
 try{
   const saved=JSON.parse(localStorage.getItem(appearanceKey)||'{}');
   for(const key of ['background','theme','font'])if(Object.hasOwn(names[key],saved[key]))state[key]=saved[key];
@@ -23,10 +23,7 @@ function call(){return '<a class="phone-icon" href="tel:+73493660009" aria-label
 function modes(){return '<div class="receive-controls" role="group" aria-label="Способ получения"><button data-mode="delivery" aria-pressed="'+(state.mode==='delivery')+'">Доставка</button><button data-mode="pickup" aria-pressed="'+(state.mode==='pickup')+'">Самовывоз</button></div>';}
 function renderLocation(){return '<button class="location-button" id="open-address" aria-controls="address-sheet" aria-expanded="false">'+icon('pin')+'<span class="address-copy"><strong id="location-title"></strong><small id="location-detail"></small></span>'+icon('arrow')+'</button>';}
 function renderHeader(){
-  let html;
-  if(state.header==='sign')html='<div class="header-row"><span class="town">Губкинский</span>'+call()+'</div>'+logo()+modes()+renderLocation();
-  else if(state.header==='compact')html='<div class="header-row">'+logo()+call()+'</div>'+renderLocation()+modes();
-  else html='<div class="header-row">'+logo()+call()+'</div><div class="address-ticket">'+renderLocation()+modes()+'</div>';
+  const html='<div class="header-row">'+logo()+call()+'</div>'+renderLocation()+modes();
   headerHost.innerHTML='<header class="app-header header-'+state.header+'">'+html+'<p class="delivery-rule">'+(state.mode==='pickup'?'Без минимальной суммы. Время подтвердит ресторан.':'Доставка от 1 000 ₽')+'</p></header>';
   document.getElementById('location-title').textContent=state.mode==='pickup'?'Забрать в Жаровне':state.address||'Куда привезти?';
   document.getElementById('location-detail').textContent=state.mode==='pickup'?'Губкинский, 1 мкр., д. 7 · ТЦ «Русь»':state.address?'Губкинский · изменить адрес':'Губкинский · укажите адрес доставки';
@@ -35,7 +32,7 @@ function update(){
   phone.className='phone '+state.background+' theme-'+state.theme+' '+state.font;
   for(const key of ['background','theme','font','header'])document.querySelectorAll('[data-'+key+']').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset[key]===state[key])));
   document.getElementById('selection').textContent=[names.header[state.header],names.background[state.background],names.theme[state.theme],names.font[state.font]].join(' · ');
-  document.getElementById('header-position').textContent=(headerIds.indexOf(state.header)+1)+' / 3 · '+names.header[state.header];
+  document.getElementById('header-position').textContent=(headerIds.indexOf(state.header)+1)+' / '+headerIds.length+' · '+names.header[state.header];
   document.getElementById('header-description').textContent=descriptions[state.header];
   document.getElementById('quick-header-theme').textContent=state.theme==='dark'?'Включить светлую тему':'Включить тёмную тему';
   try{localStorage.setItem(appearanceKey,JSON.stringify({background:state.background,theme:state.theme,font:state.font}));localStorage.setItem(headerKey,state.header);}catch{}
@@ -58,7 +55,7 @@ document.getElementById('close-address').addEventListener('click',()=>closeAddre
 document.getElementById('address-form').addEventListener('submit',event=>{event.preventDefault();const value=addressInput.value.trim();if(!value){addressInput.setCustomValidity('Укажите пример адреса.');addressInput.reportValidity();return;}state.address=value;closeAddress(false);update();document.getElementById('open-address').focus({preventScroll:true});});
 addressInput.addEventListener('input',()=>addressInput.setCustomValidity(''));
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!sheet.hidden)closeAddress();});
-function stepHeader(direction){closeAddress(false);state.header=headerIds[(headerIds.indexOf(state.header)+direction+3)%3];update();}
+function stepHeader(direction){closeAddress(false);state.header=headerIds[(headerIds.indexOf(state.header)+direction+headerIds.length)%headerIds.length];update();}
 document.getElementById('previous-header').addEventListener('click',()=>stepHeader(-1));
 document.getElementById('next-header').addEventListener('click',()=>stepHeader(1));
 document.getElementById('quick-header-theme').addEventListener('click',()=>{closeAddress(false);state.theme=state.theme==='dark'?'light':'dark';update();});

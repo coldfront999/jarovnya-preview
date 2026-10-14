@@ -5,28 +5,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#f4f4f1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
-  <title>Жаровня — выбираем шапку</title>
+  <title>Жаровня — компактная шапка</title>
   <link rel="stylesheet" href="backgrounds.css?v=selected-fonts">
-  <link rel="stylesheet" href="headers.css?v=transparent-all">
+  <link rel="stylesheet" href="headers.css?v=compact-background">
 </head>
 <body>
 <main class="lab header-lab">
   <section class="choices">
     <a class="back" href="backgrounds.html?v=selected-fonts">Вернуться к фонам и шрифтам</a>
-    <h1>Выбираем шапку</h1>
-    <p class="intro">Одинаковые функции, три разные композиции. Сравните на крафте и угле.</p>
-    <fieldset><legend>Композиция</legend><div class="header-choices">
-      <button data-header="sign" aria-pressed="true"><strong>1 · Вывеска</strong><span>Крупный логотип в центре</span></button>
-      <button data-header="compact" aria-pressed="false"><strong>2 · Компактная</strong><span>Больше места для меню</span></button>
-      <button data-header="address" aria-pressed="false"><strong>3 · Адресная</strong><span>Адрес и получение в одной панели</span></button>
-    </div></fieldset>
+    <h1>Компактная шапка</h1>
+    <p class="intro">Оставили компактную композицию. Сравните её на крафте и угле, в обеих темах.</p>
     <fieldset><legend>Фон</legend><div class="background-buttons">
       <button class="background-choice" data-background="craft" aria-pressed="false"><img src="background-assets/craft.webp" alt="" width="80" height="118"><span>Крафт</span></button>
       <button class="background-choice" data-background="urban" aria-pressed="true"><img src="background-assets/urban.webp" alt="" width="80" height="118"><span>Уголь</span></button>
     </div></fieldset>
     <fieldset><legend>Тема</legend><div class="theme-buttons"><button data-theme="light" aria-pressed="false">Светлая</button><button data-theme="dark" aria-pressed="true">Тёмная</button></div></fieldset>
     <fieldset><legend>Шрифт заголовков</legend><div class="font-buttons"><button data-font="oswald" aria-pressed="true">1 · Oswald<span class="oswald">С огня</span></button><button data-font="neucha" aria-pressed="false">5 · Neucha<span class="neucha">С огня</span></button></div></fieldset>
-    <p id="selection" class="chosen" aria-live="polite">Вывеска · Уголь · Тёмная · Oswald</p>
+    <p id="selection" class="chosen" aria-live="polite">Компактная · Уголь · Тёмная · Oswald</p>
     <a class="back" href="menu.html">Посмотреть меню целиком</a>
     <p class="note">Макет для выбора шапки. Можно указать пример адреса и переключить способ получения. Заказы не создаются.</p>
   </section>
@@ -48,12 +43,12 @@
         <p class="sheet-note">Это проверка интерфейса.</p>
       </section>
     </div>
-    <nav class="header-navigation" aria-label="Сравнение шапок"><button id="previous-header">Предыдущая</button><span id="header-position" aria-live="polite">1 / 3 · Вывеска</span><button id="next-header">Следующая</button></nav>
+    <nav hidden class="header-navigation" aria-label="Сравнение шапок"><button id="previous-header">Предыдущая</button><span id="header-position" aria-live="polite">1 / 1 · Компактная</span><button id="next-header">Следующая</button></nav>
     <button class="quick-theme" id="quick-header-theme">Включить светлую тему</button>
-    <p id="header-description" class="preview-caption">Логотип как вывеска ресторана. Адрес и получение идут ниже.</p>
+    <p id="header-description" class="preview-caption">Короткая шапка: меню начинается раньше, основные действия рядом.</p>
   </section>
 </main>
-<script src="headers.js?v=1"></script>
+<script src="headers.js?v=compact-background"></script>
 </body>
 </html>
 

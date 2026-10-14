@@ -51,3 +51,7 @@ headers.html adds three compositions: centered restaurant sign, compact row, and
 
 The address-led composition is the current priority. All three comparison logos now sit directly on the artwork with no rectangle. menu.html combines that header with the real 53-item catalog, existing menu search, favorites, cart, requested-weight dialog and staff functions. It uses a separate IndexedDB database, zharovnya-menu-workshop-v1, and no network order service. List styling is provisional; the product dialog design and descriptions remain the next stage. Existing photos, prices, artwork, logo file and frozen root preview are unchanged.
 
+## Compact composition selected
+
+The owner superseded the earlier address-led priority: only the compact composition is now selectable. Old saved sign/address values fall back to compact. Removed the broad opaque surfaces over category navigation, headings and catalog so the original selected artwork shows through. Text-only translucent protection remains on dish copy over dense illustration strokes. Stable preview files and original assets are unchanged.
+
