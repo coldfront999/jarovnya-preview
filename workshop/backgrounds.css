@@ -38,3 +38,15 @@
 
 .phone.craft{background-image:url('background-assets/craft.webp');--fg:#2a2118;--surface:#f8eedc;--button:#aa3716;--button-ink:#fff9ef;--line:#9a7c60;color:var(--fg)}.background-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.background-choice{width:100%;min-width:0}@media(max-width:800px){.background-choice{width:100%}.background-buttons{gap:9px}.background-choice img{height:118px}}
 
+/* Material and brightness are independent; filters affect artwork only. */
+.phone.craft,.phone.urban{background-image:none;background-color:var(--surface)}
+.phone.craft{--art:url('background-assets/craft.webp')}
+.phone.urban{--art:url('background-assets/urban.webp')}
+.phone::before{content:"";position:absolute;inset:0;z-index:-1;background-image:var(--art);background-size:cover;background-position:center;pointer-events:none}
+.phone.theme-light{--fg:#2a2118;--surface:#faf3e7;--button:#a93212;--button-ink:#fff9ef;--line:#94785e;color:var(--fg);color-scheme:light}
+.phone.theme-dark{--fg:#fff4e8;--surface:#221d18;--button:#fa6b25;--button-ink:#21130c;--line:#9b8872;color:var(--fg);color-scheme:dark}
+.phone.craft.theme-dark::before{filter:invert(1) hue-rotate(180deg) brightness(.85)}
+.phone.urban.theme-light::before{filter:invert(1) hue-rotate(180deg)}
+.background-buttons{grid-template-columns:repeat(2,minmax(0,136px))}
+.theme-buttons{display:flex;gap:10px}.theme-buttons button,.quick-theme{min-height:44px;padding:11px 18px;border:1px solid #aaaca3;border-radius:5px;color:#242422;background:#fff;font-size:14px}.theme-buttons button[aria-pressed=true]{border:2px solid #242422;padding:10px 17px;background:#e7e7df}.theme-buttons button:hover,.quick-theme:hover{background:#e7e7df}.theme-hint{font-size:12px;line-height:1.5;color:#53554a;margin:10px 0 0}.quick-theme{display:block;margin:12px auto 0;width:100%;max-width:390px}
+

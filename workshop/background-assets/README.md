@@ -35,3 +35,7 @@ Verified official METADATA.pb: Cyrillic subset and OFL license for every family.
 
 At the owner's request, restored the original craft-paper and oven illustration as a third selectable mockup on 14 October 2026. The existing generated PNG is exported unchanged to craft.webp. All thirteen font choices work across all three backgrounds. No stable preview files changed.
 
+## Independent material and theme
+
+The owner retained craft and charcoal only. Each material now supports light and dark themes independently, with thirteen headline font choices. CSS filters adapt only the background illustration; UI colors use explicit light/dark palettes. The original artwork files are unchanged. Appearance preferences are stored under a workshop-specific localStorage key; storage failures fall back to a working session. Poster artwork remains in history/assets but is no longer selectable. Stable preview is untouched.
+
