@@ -39,3 +39,7 @@ At the owner's request, restored the original craft-paper and oven illustration 
 
 The owner retained craft and charcoal only. Each material now supports light and dark themes independently, with thirteen headline font choices. CSS filters adapt only the background illustration; UI colors use explicit light/dark palettes. The original artwork files are unchanged. Appearance preferences are stored under a workshop-specific localStorage key; storage failures fall back to a working session. Poster artwork remains in history/assets but is no longer selectable. Stable preview is untouched.
 
+## Font shortlist
+
+The owner selected original choices 1 (Oswald) and 5 (Neucha). Only those two are exposed in the picker; original numbers remain visible. Both work with each material and theme. Previous font files remain for rollback. A previously saved rejected font safely falls back to Oswald.
+

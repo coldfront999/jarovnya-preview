@@ -50,3 +50,5 @@
 .background-buttons{grid-template-columns:repeat(2,minmax(0,136px))}
 .theme-buttons{display:flex;gap:10px}.theme-buttons button,.quick-theme{min-height:44px;padding:11px 18px;border:1px solid #aaaca3;border-radius:5px;color:#242422;background:#fff;font-size:14px}.theme-buttons button[aria-pressed=true]{border:2px solid #242422;padding:10px 17px;background:#e7e7df}.theme-buttons button:hover,.quick-theme:hover{background:#e7e7df}.theme-hint{font-size:12px;line-height:1.5;color:#53554a;margin:10px 0 0}.quick-theme{display:block;margin:12px auto 0;width:100%;max-width:390px}
 
+.font-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}
+

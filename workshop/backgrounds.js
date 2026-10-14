@@ -6,7 +6,7 @@ const closeButton=document.getElementById('close-menu');
 const backgrounds={craft:'Крафт',urban:'Уголь'};
 const themes={light:'Светлая',dark:'Тёмная'};
 const preferenceKey='jarovnya-workshop-appearance-v1';
-const fonts={"oswald": "Oswald", "caveat": "Caveat", "russo": "Russo One", "amaticsc": "Amatic SC", "neucha": "Neucha", "marckscript": "Marck Script", "lobster": "Lobster", "pangolin": "Pangolin", "stalinistone": "Stalinist One", "rubikmonoone": "Rubik Mono One", "unbounded": "Unbounded", "yesevaone": "Yeseva One", "podkova": "Podkova"};
+const fonts={oswald:'Oswald',neucha:'Neucha'};
 const fontIds=Object.keys(fonts);
 let background='urban',font='oswald',theme='dark';
 try{
