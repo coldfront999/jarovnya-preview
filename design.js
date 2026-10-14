@@ -1,5 +1,5 @@
 /* Eight presentation layers over the existing, unchanged demo behaviour. */
-const DESIGN_OPTIONS={ember:{name:'У огня',number:'01'},bistro:{name:'Бистро',number:'02'},yard:{name:'На районе',number:'03'},minimal:{name:'Minimal Premium',number:'04',ref:2},urban:{name:'Urban Dark',number:'05',ref:3},craft:{name:'Authentic Craft',number:'06',ref:4},brutal:{name:'Neobrutalism',number:'07',ref:7},story:{name:'Story Style',number:'08',ref:8}};
+const DESIGN_OPTIONS={ember:{name:'У огня',number:'01'},bistro:{name:'Бистро',number:'02'},yard:{name:'На районе',number:'03'}};
 const designParams=new URLSearchParams(location.search);
 let designKey=Object.hasOwn(DESIGN_OPTIONS,designParams.get('style'))?designParams.get('style'):'ember';
 state.role=['customer','admin','kitchen','grill'].includes(designParams.get('role'))?designParams.get('role'):'customer';
