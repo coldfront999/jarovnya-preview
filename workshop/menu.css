@@ -1,8 +1,8 @@
 @font-face{font-family:'Golos Text';src:url('background-assets/fonts/golos-text.ttf') format('truetype');font-weight:400 900;font-display:swap}
 @font-face{font-family:Oswald;src:url('background-assets/fonts/oswald.ttf') format('truetype');font-weight:200 700;font-display:swap}
 @font-face{font-family:Neucha;src:url('background-assets/fonts/neucha.ttf') format('truetype');font-weight:400;font-display:swap}
-:root{font-family:'Golos Text',sans-serif;background:#f4f4f1;--display:Oswald,sans-serif;--ink:#fff4e8;--muted:#d6cabc;--paper:#221d18;--orange:#fa6b25;--accent-ink:#21130c;--soft:#322a22;--line:#9b8872;--red:#fbab8e;--green:#ace0b2}
-html[data-theme=light]{--ink:#2a2118;--muted:#5e5144;--paper:#faf3e7;--orange:#a93212;--accent-ink:#fff9ef;--soft:#eee1cc;--line:#94785e;--red:#a12216;--green:#23613d}
+:root{font-family:'Golos Text',sans-serif;background:#f4f4f1;--display:Oswald,sans-serif;--ink:#fff;--muted:#ccc;--paper:#000;--orange:#fa6b25;--accent-ink:#21130c;--soft:#202020;--line:#888;--red:#fbab8e;--green:#ace0b2}
+html[data-theme=light]{--ink:#111;--muted:#555;--paper:#fff;--orange:#a93212;--accent-ink:#fff;--soft:#f3f3f3;--line:#888;--red:#a12216;--green:#23613d}
 html[data-type=neucha]{--display:Neucha,sans-serif}
 body{background:#f4f4f1}.menu-studio{display:grid;grid-template-columns:260px 440px;gap:40px;justify-content:center;align-items:start;max-width:1000px;margin:24px auto;padding:0 20px}
 .menu-settings{color:#242422;position:sticky;top:24px;font-size:14px}.studio-back{display:inline-flex;min-height:44px;align-items:center;text-decoration:underline;text-underline-offset:5px;margin-bottom:14px}.appearance-settings{border-top:1px solid #bebeb3;border-bottom:1px solid #bebeb3;padding:10px 0}.appearance-settings summary{cursor:pointer;min-height:44px;display:list-item;align-content:center;font-weight:600}.appearance-settings label{display:grid;gap:8px;margin:15px 0;font-size:13px}.appearance-settings select{font-size:14px;min-height:44px;width:100%;border:1px solid #8d8e84;border-radius:5px;background:#fff;color:#242422;padding:8px}.menu-settings>p{font-size:13px;line-height:1.6;margin-top:19px;color:#53554a}
@@ -27,7 +27,7 @@ body:not([data-role=customer]) .menu-studio{display:block;max-width:1220px}body:
 .menu-search-scene{margin:14px 24px 0;border-bottom:1px solid var(--line);padding-bottom:8px}
 .menu-search-scene .menu-search{width:100%;margin:0;border:0;padding:0}
 .menu-catalog-wrap{position:relative;margin-top:0}
-.menu-catalog{position:relative;background:var(--paper);padding-top:9px}
+.menu-catalog{position:relative;background:transparent;padding-top:9px}
 .menu-heading,.menu-categories,.menu-list,.photo-note{background:transparent}
 .menu-categories{border-radius:0}
 .m-modes button{display:flex;justify-content:center;align-items:center;gap:9px}
@@ -51,8 +51,8 @@ body:not([data-role=customer]) .menu-studio{display:block;max-width:1220px}body:
 .bottom .nav-contact:hover{color:var(--ink)}
 @media(max-width:375px){.menu-search-scene{margin-left:18px;margin-right:18px}.menu-list,.grid{gap:22px 12px}.menu-photo{flex-basis:auto}.menu-copy h2{font-size:14px;min-height:40px}.menu-price{font-size:15px}.menu-add{font-size:12px;padding-left:8px;padding-right:8px;gap:6px}}
 /* Quiet backgrounds apply to every client screen, material, and theme. */
-:root{--screen-bg:#000;--dish-divider:#aa9681}
-html[data-theme=light]{--screen-bg:#fff;--dish-divider:#766754}
+:root{--screen-bg:#000;--dish-divider:#737373}
+html[data-theme=light]{--screen-bg:#fff;--dish-divider:#888}
 .shell{background:var(--screen-bg)}
 .shell::before{display:block;background-image:none;background-repeat:no-repeat;filter:none}
 .m-header{position:relative;isolation:isolate}
@@ -90,3 +90,10 @@ html[data-theme=dark] .menu-copy h2,html[data-theme=dark] .menu-categories butto
 .menu-lavash-options button:disabled{color:var(--muted);background:var(--paper);border-style:dashed}
 .menu-lavash-options small{font-size:12px}
 .menu-availability{color:var(--muted);margin-top:9px}
+/* The catalog shows the same surface as the header, with no cream panel. */
+.menu-price{background:transparent}
+.menu-photo .favorite{background:var(--paper);color:var(--ink)}
+.menu-photo .favorite.on{color:var(--orange)}
+.bottom{isolation:isolate}
+html[data-material=craft] .bottom::before{content:'';position:absolute;inset:0;z-index:-1;background:url('background-assets/craft-paper.webp') top center / 440px 440px repeat;pointer-events:none}
+html[data-material=craft][data-theme=dark] .bottom::before{filter:invert(1) hue-rotate(180deg) brightness(.85)}
