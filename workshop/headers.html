@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4f4f1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Жаровня — выбираем шапку</title>
+  <link rel="stylesheet" href="backgrounds.css?v=selected-fonts">
+  <link rel="stylesheet" href="headers.css?v=1">
+</head>
+<body>
+<main class="lab header-lab">
+  <section class="choices">
+    <a class="back" href="backgrounds.html?v=selected-fonts">Вернуться к фонам и шрифтам</a>
+    <h1>Выбираем шапку</h1>
+    <p class="intro">Одинаковые функции, три разные композиции. Сравните на крафте и угле.</p>
+    <fieldset><legend>Композиция</legend><div class="header-choices">
+      <button data-header="sign" aria-pressed="true"><strong>1 · Вывеска</strong><span>Крупный логотип в центре</span></button>
+      <button data-header="compact" aria-pressed="false"><strong>2 · Компактная</strong><span>Больше места для меню</span></button>
+      <button data-header="address" aria-pressed="false"><strong>3 · Адресная</strong><span>Адрес и получение в одной панели</span></button>
+    </div></fieldset>
+    <fieldset><legend>Фон</legend><div class="background-buttons">
+      <button class="background-choice" data-background="craft" aria-pressed="false"><img src="background-assets/craft.webp" alt="" width="80" height="118"><span>Крафт</span></button>
+      <button class="background-choice" data-background="urban" aria-pressed="true"><img src="background-assets/urban.webp" alt="" width="80" height="118"><span>Уголь</span></button>
+    </div></fieldset>
+    <fieldset><legend>Тема</legend><div class="theme-buttons"><button data-theme="light" aria-pressed="false">Светлая</button><button data-theme="dark" aria-pressed="true">Тёмная</button></div></fieldset>
+    <fieldset><legend>Шрифт заголовков</legend><div class="font-buttons"><button data-font="oswald" aria-pressed="true">1 · Oswald<span class="oswald">С огня</span></button><button data-font="neucha" aria-pressed="false">5 · Neucha<span class="neucha">С огня</span></button></div></fieldset>
+    <p id="selection" class="chosen" aria-live="polite">Вывеска · Уголь · Тёмная · Oswald</p>
+    <p class="note">Макет для выбора шапки. Можно указать пример адреса и переключить способ получения. Заказы не создаются.</p>
+  </section>
+  <section class="preview-wrap" aria-label="Шапка приложения на телефоне">
+    <div class="phone urban theme-dark oswald" id="header-phone">
+      <div id="restaurant-header"></div>
+      <section class="sample-menu" aria-label="Фрагмент настоящего меню">
+        <h2>С огня</h2>
+        <article class="sample-dish">
+          <img src="../photos/pork.webp" alt="Шашлык из свиной шеи" width="116" height="116">
+          <div><h3>Шашлык из свиной шеи</h3><p>199 ₽ / 100 г</p><small>Итог — после взвешивания</small></div>
+        </article>
+
+      </section>
+      <section class="address-sheet" id="address-sheet" aria-label="Адрес получения" hidden>
+        <div class="sheet-title"><h3 id="address-title">Адрес доставки</h3><button id="close-address" class="phone-icon" aria-label="Закрыть адрес"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div>
+        <form id="address-form"><label for="demo-address">Микрорайон, дом, квартира</label><input id="demo-address" name="address" autocomplete="off" maxlength="180" required placeholder="Например, 1 мкр., д. 7"><button class="sheet-save" type="submit">Сохранить в макете</button></form>
+        <p id="pickup-address" hidden>Губкинский, 1 микрорайон, д. 7, ТЦ «Русь», 1 этаж</p>
+        <p class="sheet-note">Это проверка интерфейса.</p>
+      </section>
+    </div>
+    <nav class="header-navigation" aria-label="Сравнение шапок"><button id="previous-header">Предыдущая</button><span id="header-position" aria-live="polite">1 / 3 · Вывеска</span><button id="next-header">Следующая</button></nav>
+    <button class="quick-theme" id="quick-header-theme">Включить светлую тему</button>
+    <p id="header-description" class="preview-caption">Логотип как вывеска ресторана. Адрес и получение идут ниже.</p>
+  </section>
+</main>
+<script src="headers.js?v=1"></script>
+</body>
+</html>
+

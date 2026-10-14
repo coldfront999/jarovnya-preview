@@ -43,3 +43,7 @@ The owner retained craft and charcoal only. Each material now supports light and
 
 The owner selected original choices 1 (Oswald) and 5 (Neucha). Only those two are exposed in the picker; original numbers remain visible. Both work with each material and theme. Previous font files remain for rollback. A previously saved rejected font safely falls back to Oswald.
 
+## Header comparison
+
+headers.html adds three compositions: centered restaurant sign, compact row, and address-led panel. Each supports the two approved materials, both themes and Oswald/Neucha. The existing project logo and actual pork photo/price are reused without modification. Delivery minimum and pickup address match business-rules.json. Address entry remains in memory only and creates no order. Appearance and selected header are stored separately from the stable app. No stable preview files changed.
+
