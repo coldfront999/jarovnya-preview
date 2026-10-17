@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru" data-theme="dark" data-material="urban" data-type="oswald" data-card="square">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#221d18">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Жаровня — выбор карточек блюд</title>
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="contrast.css"><link rel="stylesheet" href="order-options.css"><link rel="stylesheet" href="menu.css?v=card-interactions"><link rel="stylesheet" href="icons.css?v=menu-pairs"><link rel="stylesheet" href="cards.css">
+</head>
+<body data-role="customer">
+<a class="cards-skip" href="#app">Перейти к меню</a>
+<div class="menu-studio">
+  <aside class="menu-settings" aria-label="Выбор карточек блюд">
+    <a href="menu.html?v=card-interactions&cartMotion=flight" class="studio-back">Вернуться в меню</a>
+    <h1 class="cards-title">Какая карточка?</h1>
+    <div class="cards-choices" role="group" aria-label="Форма фотографии">
+      <button type="button" data-card-choice="square" aria-pressed="true">1 · Квадрат</button>
+      <button type="button" data-card-choice="round" aria-pressed="false">2 · Круг</button>
+      <button type="button" data-card-choice="wide" aria-pressed="false">3 · Прямоугольник</button>
+    </div>
+    <p id="cards-description" aria-live="polite">Полный снимок блюда с небольшим скруглением. Крупная фотография и спокойная композиция.</p>
+    <details class="appearance-settings"><summary>Фон, тема и шрифт</summary>
+      <label for="menu-material-select">Фон<select id="menu-material-select"><option value="craft">Крафт</option><option value="urban">Уголь</option></select></label>
+      <label for="menu-theme-select">Тема<select id="menu-theme-select"><option value="light">Светлая</option><option value="dark">Тёмная</option></select></label>
+      <label for="menu-font-select">Шрифт<select id="menu-font-select"><option value="oswald">Oswald</option><option value="neucha">Neucha</option></select></label>
+      <label for="menu-cart-motion-select">Анимация корзины<select id="menu-cart-motion-select"><option value="auto">По настройке устройства</option><option value="flight">Перелёт в корзину</option><option value="quiet">Без перелёта</option></select></label>
+    </details>
+    <p class="cards-help">Фото открывает блюдо. Цена добавляет штучное блюдо в корзину; у весового сначала выбираем вес.</p>
+  </aside>
+  <div class="app-stage"><div id="preview"></div><main id="app" tabindex="-1"></main></div>
+</div>
+<div id="modal"></div><div id="toast" role="status" aria-live="polite"></div>
+<script src="../vendor/purify.min.js"></script><script src="catalog.js"></script><script src="rules.js"></script><script src="menu-storage.js"></script><script src="icons.js?v=menu-pairs"></script><script src="app.js?v=compact-cart"></script><script src="menu.js?v=card-interactions"></script><script src="cards.js"></script>
+</body></html>
+

@@ -27,17 +27,27 @@ header=function(){return '<header class="m-header m-compact"><div class="m-brand
 nav=function(){return `<nav class="bottom" aria-label="Главная навигация">${[['menu','home','Меню'],['favorites','heart','Избранное'],['orders','list','Заказы'],['contact','phone','Позвонить'],['cart','bag','Корзина']].map(([p,i,n])=>p==='contact'?`<a class="nav-contact" href="tel:+73493660009" aria-label="Позвонить в Жаровню">${icon(i)}<span>Позвонить</span></a>`:`<button data-page="${p}" class="${state.page===p?'active':''}">${icon(i)}<span>${n}</span>${p==='cart'&&state.cart.length?`<b class="bubble">${state.cart.length}</b>`:''}</button>`).join('')}</nav>`;};
 function menuIsLavash(p){return p.id==='lavash-150'||p.id==='lavash-200';}
 function menuDisplayDishes(dishes){let hasLavash=false;return dishes.flatMap(p=>{if(!menuIsLavash(p))return [p];if(hasLavash)return [];hasLavash=true;const variants=MENU.filter(menuIsLavash);const availableVariants=variants.filter(allowed);const primary=(availableVariants.length?availableVariants:variants).reduce((a,b)=>a.price<b.price?a:b);return [{...primary,name:'Шашлык в лаваше',menuLavashGroup:true}];});}
-card=function(p){const group=p.menuLavashGroup;const favorite=group?state.favorites.some(id=>id==='lavash-150'||id==='lavash-200'):state.favorites.includes(p.id);const favoriteAttribute=group?'data-menu-fav-lavash':'data-fav="'+p.id+'"';const unit=p.unit==='100g'||p.unit==='шт'||/порци/i.test(p.unit)||(p.category==='Хачапури'||p.category==='Пироги и пицца')?'':'<small>'+escapeHTML(p.unit)+'</small>';return '<article class="menu-dish" data-menu-product="'+p.id+'"><div class="menu-photo"><button class="photo-open" data-product="'+p.id+'" aria-label="'+(p.unit!=='100g'&&!group?'Добавить в корзину: ':'Подробнее: ')+escapeHTML(p.name)+'"><img src="'+escapeHTML(p.image)+'" alt="'+escapeHTML(p.name)+'" width="112" height="112" loading="lazy" decoding="async"></button><button class="favorite '+(favorite?'on':'')+'" '+favoriteAttribute+' aria-pressed="'+favorite+'" aria-label="В избранное: '+escapeHTML(p.name)+'">'+icon('heart',18)+'</button></div><div class="menu-copy"><h2>'+escapeHTML(p.name)+'</h2><p class="menu-price">'+(p.unit==='100g'||group?'от ':'')+money(p.priceKopecks??Math.round(p.price*100))+'</p>'+unit+(!allowed(p)?'<small class="menu-availability">'+(p.available?'Недоступно сейчас':'Закончилось')+'</small>':'')+'</div></article>';};
+card=function(p){const group=p.menuLavashGroup,available=allowed(p),name=escapeHTML(p.name);const favorite=group?state.favorites.some(id=>id==='lavash-150'||id==='lavash-200'):state.favorites.includes(p.id);const favoriteAttribute=group?'data-menu-fav-lavash':'data-fav="'+p.id+'"';const unit=p.unit==='100g'||/шт|порци/i.test(p.unit)||(p.category==='Хачапури'||p.category==='Пироги и пицца')?'':'<small>'+escapeHTML(p.unit)+'</small>';return '<article class="menu-dish '+(available?'':'menu-unavailable')+'" data-menu-product="'+p.id+'"><div class="menu-photo"><button class="photo-open" data-product="'+p.id+'" aria-label="Подробнее: '+name+'"><img src="'+escapeHTML(p.image)+'" alt="'+name+'" width="112" height="112" loading="lazy" decoding="async"></button><button class="favorite '+(favorite?'on':'')+'" '+favoriteAttribute+' aria-pressed="'+favorite+'" aria-label="В избранное: '+name+'">'+icon('heart',18)+'</button></div><div class="menu-copy"><h2><button class="menu-name" data-product="'+p.id+'">'+name+'</button></h2><button type="button" class="menu-price" data-menu-price="'+p.id+'" aria-label="'+(!available?'Недоступно: ':p.unit==='100g'||group?'Выбрать вес: ':'Добавить в корзину: ')+name+'" '+(available?'':'disabled')+'>'+(p.unit==='100g'||group?'от ':'')+money(p.priceKopecks??Math.round(p.price*100))+'</button>'+unit+(!available?'<small class="menu-availability">'+(p.available?'Недоступно сейчас':'Закончилось')+'</small>':'')+'</div></article>';};
 renderFavorites=function(){const dishes=menuDisplayDishes(MENU.filter(p=>state.favorites.includes(p.id)));return '<div class="content" style="padding-bottom:15px">'+pageTitle('Избранное')+'</div><div class="grid">'+(dishes.map(card).join('')||'<p class="menu-empty">Нажмите сердечко на любимом блюде.</p>')+'</div>';};
 renderMenu=function(){let dishes=state.category==='Популярное'?['pork','shawarma-chicken','adjara','potatoes'].map(item):MENU.filter(p=>p.category===state.category);if(state.query)dishes=MENU.filter(p=>p.name.toLocaleLowerCase('ru-RU').includes(state.query.toLocaleLowerCase('ru-RU')));dishes=menuDisplayDishes(dishes);const title=state.query?'Нашлось в меню':state.category==='Популярное'?'С огня к столу':state.category;const hours=state.time==='closed'?'Сейчас закрыто. Принимаем заказы с 10:00.':state.time==='late'?'После 20:15 — только шаурма самовывозом.':state.time==='friday'?'Бизнес-ланчи доступны с понедельника по четверг.':'Бизнес-ланчи · Пн–Чт, 11:00–16:00';return header()+(state.time!=='normal'?'<p class="menu-hours">'+hours+'</p>':'')+'<div id="menu-search-panel" class="menu-search-scene" '+(menuSearchOpen?'':'hidden')+'><label class="menu-search">'+icon('search',20)+'<input id="search" type="search" autocomplete="off" aria-label="Поиск блюда" placeholder="Найти блюдо" value="'+escapeHTML(state.query)+'"></label></div><section class="menu-catalog-wrap" aria-label="Блюда меню"><div class="menu-catalog"><nav class="menu-categories" aria-label="Категории меню"><button class="menu-search-toggle" data-menu-search aria-label="Поиск блюда" aria-controls="menu-search-panel" aria-expanded="'+menuSearchOpen+'">'+icon('search',21)+'</button>'+CATEGORIES.map(c=>'<button data-category="'+escapeHTML(c)+'" aria-pressed="'+(state.category===c)+'">'+escapeHTML(c)+'</button>').join('')+'</nav><div class="menu-heading"><h1>'+escapeHTML(title)+'</h1><span>'+dishes.length+' в меню</span></div><div class="menu-list">'+(dishes.map(card).join('')||'<p class="menu-empty">Блюдо не найдено. Попробуйте другое название.</p>')+'</div></div></section>';};
 const menuOriginalRender=render;
 let menuCategoryScroll=0;
+let menuCatalogSignature=null;
+function menuSaveState(){DemoStore.save({orders:state.orders,cart:state.cart,favorites:state.favorites,profile:state.profile,authed:state.authed,eta:state.eta,availability:MENU.map(p=>[p.id,p.available])});}
+function menuSyncCatalogControls(){
+  document.querySelectorAll('.menu-dish .favorite').forEach(button=>{const active=button.hasAttribute('data-menu-fav-lavash')?state.favorites.some(id=>id==='lavash-150'||id==='lavash-200'):state.favorites.includes(button.dataset.fav);button.classList.toggle('on',active);button.setAttribute('aria-pressed',String(active));});
+  const cart=document.querySelector('.bottom [data-page=cart]');
+  if(cart){let badge=cart.querySelector('.bubble');if(state.cart.length){if(!badge){badge=document.createElement('b');badge.className='bubble';cart.append(badge);}badge.textContent=state.cart.length;}else badge?.remove();}
+}
 render=function(){
+  const signature=state.role==='customer'&&['menu','favorites'].includes(state.page)?JSON.stringify([state.page,state.category,state.query,state.mode,state.time,state.eta,state.profile.addresses,MENU.map(p=>[p.id,p.available]),state.page==='favorites'?state.favorites:null]):null;
+  if(signature&&signature===menuCatalogSignature&&document.querySelector('#app .menu-list,#app .grid')){menuSyncCatalogControls();menuSaveState();return;}
   const previous=document.querySelector('.menu-categories');
   const previousCategory=previous?.querySelector('[data-category][aria-pressed=true]')?.dataset.category;
   if(previous)menuCategoryScroll=previous.scrollLeft;
   document.body.dataset.role=state.role;document.body.dataset.page=state.page;
   menuOriginalRender();
+  menuCatalogSignature=signature;
   const categories=document.querySelector('.menu-categories');
   if(categories){
     categories.scrollLeft=menuCategoryScroll;
@@ -71,7 +81,7 @@ const menuOriginalProduct=renderProduct;
 renderProduct=function(){menuOriginalProduct();const p=state.selected;if(p.unit==='шт'||/порци/i.test(p.unit)||(p.category==='Хачапури'||p.category==='Пироги и пицца')){document.querySelector('.product-unit').textContent=money(p.priceKopecks??Math.round(p.price*100));}if(!menuIsLavash(p))return;const sheet=document.querySelector('#modal .sheet');sheet.setAttribute('aria-label','Шашлык в лаваше');sheet.querySelector('h2').textContent='Шашлык в лаваше';const options=document.createElement('fieldset');options.className='menu-lavash-options';options.setAttribute('aria-label','Вес шашлыка в лаваше');options.innerHTML='<legend>Выберите вес</legend><div>'+MENU.filter(menuIsLavash).map(v=>'<button type="button" data-menu-lavash="'+v.id+'" aria-pressed="'+(v.id===p.id)+'" '+(allowed(v)?'':'disabled')+'><span>'+(v.id==='lavash-150'?'150 г':'200 г')+'</span><strong>'+money(v.priceKopecks??Math.round(v.price*100))+'</strong>'+(!allowed(v)?'<small>Недоступно</small>':'')+'</button>').join('')+'</div>';sheet.querySelector('.product-unit').after(options);};
 
 // Keep the two real catalog IDs and prices when choosing the lavash portion.
-document.addEventListener('click',event=>{const portion=event.target.closest('[data-menu-lavash]');if(portion){const variant=item(portion.dataset.menuLavash);if(!variant||!menuIsLavash(variant)||!allowed(variant))return;state.selected={...state.selected,...variant};renderProduct();document.querySelector('[data-menu-lavash="'+variant.id+'"]')?.focus({preventScroll:true});return;}if(event.target.closest('[data-menu-fav-lavash]')){const marked=state.favorites.some(id=>id==='lavash-150'||id==='lavash-200');state.favorites=state.favorites.filter(id=>id!=='lavash-150'&&id!=='lavash-200');if(!marked)state.favorites.push('lavash-150');render();return;}const dish=event.target.closest('[data-menu-product]');if(dish&&!event.target.closest('button,a,input'))openProduct(dish.dataset.menuProduct);});
+document.addEventListener('click',event=>{const portion=event.target.closest('[data-menu-lavash]');if(portion){const variant=item(portion.dataset.menuLavash);if(!variant||!menuIsLavash(variant)||!allowed(variant))return;state.selected={...state.selected,...variant};document.querySelectorAll('[data-menu-lavash]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.menuLavash===variant.id)));document.querySelector('.product-unit').textContent=money(variant.priceKopecks);document.querySelector('#product-price').textContent=money(Rules.lineKopecks(state.selected));return;}if(event.target.closest('[data-menu-fav-lavash]')){const marked=state.favorites.some(id=>id==='lavash-150'||id==='lavash-200');state.favorites=state.favorites.filter(id=>id!=='lavash-150'&&id!=='lavash-200');if(!marked)state.favorites.push('lavash-150');render();return;}const dish=event.target.closest('[data-menu-product]');if(dish&&!event.target.closest('button,a,input'))openProduct(dish.dataset.menuProduct);});
 
 // Observe a successful cart mutation without bypassing the existing validation.
 document.addEventListener('click',event=>{
@@ -107,21 +117,32 @@ async function menuFlyToCart(picture){
   animation.finished.then(()=>{flight.remove();receipt();},()=>flight.remove());
 }
 
-// Fixed-price products go straight into the cart. Weight choices stay in the sheet.
+// Only the price quick-adds a fixed-price product; photographs always open details.
 document.addEventListener('click',event=>{
   if(state.role!=='customer')return;
-  const control=event.target.closest('button,a,input,select');
-  if(control&&!control.matches('[data-product]'))return;
-  const product=event.target.closest('[data-product]'),dish=event.target.closest('[data-menu-product]');
-  const p=item(product?.dataset.product||dish?.dataset.menuProduct);
-  if(!p||p.unit==='100g'||menuIsLavash(p))return;
+  const price=event.target.closest('[data-menu-price]');if(!price)return;
   event.preventDefault();event.stopImmediatePropagation();
+  const p=item(price.dataset.menuPrice);if(!p||price.disabled)return;
   if(!allowed(p)){toast('Блюдо недоступно сейчас');return;}
-  const source=(product||dish).querySelector('img');
-  const picture={src:source?.currentSrc||p.image,rect:(source||product||dish).getBoundingClientRect()};
+  const dish=price.closest('[data-menu-product]');menuCardFeedback(dish);
+  if(p.unit==='100g'||menuIsLavash(p)){openProduct(p.id);return;}
+  const source=dish.querySelector('img');
+  const picture={src:source?.currentSrc||p.image,rect:(source||price).getBoundingClientRect()};
   const existing=state.cart.find(l=>l.id===p.id&&!l.addons.length&&l.sauce==='Обычный'&&l.qty<50);
   if(existing)existing.qty+=1;else state.cart.push(line(p.id));
-  render();document.querySelector('button[data-product="'+p.id+'"]')?.focus({preventScroll:true});menuFlyToCart(picture);toast('Добавлено в корзину: '+p.name);
+  render();menuFlyToCart(picture);toast('Добавлено в корзину: '+p.name);
+},true);
+
+function menuCardFeedback(dish){if(!dish)return;dish.classList.remove('menu-tapped');void dish.offsetWidth;dish.classList.add('menu-tapped');setTimeout(()=>dish.classList.remove('menu-tapped'),300);}
+const menuOpenBeforeDetails=openProduct;
+openProduct=function(id){const p=item(id);if(!p)return;if(state.role!=='customer')return menuOpenBeforeDetails(id);menuCardFeedback(document.querySelector('[data-menu-product="'+id+'"]'));state.selected={...line(id),qty:1};renderProduct();};
+
+// Weight selection updates controls in place: the photograph and sheet never remount.
+document.addEventListener('click',event=>{
+  const preset=event.target.closest('[data-requested-grams]');
+  if(preset&&state.selected){event.preventDefault();event.stopImmediatePropagation();state.selected.requestedGrams=Number(preset.dataset.requestedGrams);document.querySelectorAll('[data-requested-grams]').forEach(button=>button.setAttribute('aria-pressed',String(button===preset)));document.getElementById('requested-grams').value=state.selected.requestedGrams;document.getElementById('product-error').textContent='';return;}
+  if(!event.target.closest('[data-act=add]')||state.selected?.unit!=='100g')return;
+  if(state.selected.requestedGrams==null){event.preventDefault();event.stopImmediatePropagation();document.getElementById('product-error').textContent='Выберите желаемый вес или укажите свой.';document.querySelector('[data-requested-grams]')?.focus();}
 },true);
 
 const menuOriginalCartLine=cartLine;
@@ -141,7 +162,7 @@ let menuEditingLineId=null;
 const menuCloseBeforeEdit=closeModal;
 closeModal=function(){menuEditingLineId=null;menuCloseBeforeEdit();};
 const menuProductBeforeEdit=renderProduct;
-renderProduct=function(){menuProductBeforeEdit();if(menuEditingLineId){const button=document.querySelector('#modal [data-act=add]');button.dataset.act='menu-save';button.querySelector('span').textContent='Сохранить изменения';}};
+renderProduct=function(){menuProductBeforeEdit();const button=document.querySelector('#modal [data-act=add]');if(!allowed(item(state.selected.id))){button.disabled=true;const message=document.createElement('p');message.className='notice menu-product-availability';message.setAttribute('role','status');message.textContent=item(state.selected.id).available?'Блюдо недоступно в выбранное время.':'Сейчас закончилось. Добавление в корзину недоступно.';button.before(message);}if(state.selected.unit==='100g'){const hint=document.querySelector('.requested-weight .muted');if(hint)hint.textContent='Выберите желаемый вес. Итог — по фактическому весу после приготовления.';}if(menuEditingLineId){button.dataset.act='menu-save';button.querySelector('span').textContent='Сохранить изменения';}};
 document.addEventListener('click',event=>{
   const quantity=event.target.closest('[data-menu-quantity]');
   if(quantity){
@@ -164,3 +185,4 @@ document.addEventListener('click',event=>{
   document.querySelector('[data-menu-edit="'+savedId+'"]')?.focus({preventScroll:true});toast('Изменения сохранены');
 });
 render();
+

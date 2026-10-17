@@ -1,0 +1,19 @@
+.cards-title{font-family:var(--display),'Oswald',sans-serif;font-size:32px;line-height:1.15;margin:24px 0 18px;color:#242422}
+.cards-choices{display:flex;flex-direction:column;gap:8px}
+.cards-choices button{min-height:44px;border:1px solid #8c7b80;border-radius:999px;background:transparent;text-align:left;padding:10px 16px;color:#292027;font-size:15px;touch-action:manipulation}
+.cards-choices button:hover{background:#e9dfe3}
+.cards-choices button[aria-pressed=true]{background:#4d2130;border-color:#4d2130;color:#fff}
+.cards-choices button:focus-visible{outline:3px solid #4d2130;outline-offset:3px}
+.cards-help{border-top:1px solid #aaa0a4;padding-top:18px}
+.cards-skip{position:absolute;top:8px;left:8px;z-index:100;background:#4d2130;color:#fff;padding:12px;transform:translateY(-150%)}
+.cards-skip:focus{transform:translateY(0)}
+html[data-card=square] .menu-photo .photo-open{border-radius:10px}
+html[data-card=round] .menu-photo .photo-open{border-radius:50%}
+html[data-card=round] .menu-photo .favorite{top:auto;bottom:0;right:0}
+html[data-card=wide] .menu-photo .photo-open{border-radius:10px}
+html[data-card=wide] .menu-photo img{aspect-ratio:4/3;object-fit:cover}
+.menu-copy h2{min-height:2.8em}
+.menu-copy .menu-price{margin-top:auto}
+.menu-copy .menu-availability{margin-top:8px}
+@media(max-width:900px){.cards-title{font-size:27px;margin:16px 0 12px}.cards-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.cards-choices button{font-size:12px;text-align:center;padding:8px 5px}.menu-settings>#cards-description{min-height:3em;margin:12px 0}.cards-help{display:none}.menu-settings{padding-bottom:8px}}
+

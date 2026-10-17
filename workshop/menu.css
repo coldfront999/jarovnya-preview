@@ -156,3 +156,19 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .menu-categories{scroll-padding-inline:24px}
 .menu-categories [data-category]{scroll-margin-inline:24px}
 .menu-categories .menu-search-toggle{position:static;left:auto;z-index:auto}
+
+/* Keep food visible during interaction; only the response layer briefly glints. */
+.menu-name{display:block;width:100%;padding:0;border:0;border-radius:0;text-align:left;background:transparent;color:inherit;font:inherit;line-height:inherit;cursor:pointer}
+.menu-price{min-height:44px;cursor:pointer;touch-action:manipulation}
+.menu-price:not(:disabled):hover{background:var(--orange);color:var(--accent-ink)}
+.menu-dish::before{content:'';position:absolute;inset:-5px;pointer-events:none;background:var(--palette-outline);border-radius:10px;opacity:0}
+.menu-dish.menu-tapped::before{animation:menu-card-glint .3s ease-out}
+@keyframes menu-card-glint{0%{opacity:0}30%{opacity:.16}100%{opacity:0}}
+.menu-unavailable .menu-photo img{filter:grayscale(1);opacity:.45}
+.menu-unavailable .menu-copy h2,.menu-unavailable .menu-name{color:var(--muted)!important}
+.menu-unavailable .menu-price:disabled{color:var(--muted);background:transparent;border-color:var(--muted);opacity:1;cursor:not-allowed}
+.menu-availability{font-weight:600;margin-top:8px}
+.menu-product-availability{margin-top:16px}
+.menu-dish .photo-open,.menu-name,.menu-price{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+@media(prefers-reduced-motion:reduce){.menu-dish.menu-tapped::before{animation:none}}
+
