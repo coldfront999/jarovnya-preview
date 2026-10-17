@@ -40,7 +40,7 @@ function menuSyncCatalogControls(){
   if(cart){let badge=cart.querySelector('.bubble');if(state.cart.length){if(!badge){badge=document.createElement('b');badge.className='bubble';cart.append(badge);}badge.textContent=state.cart.length;}else badge?.remove();}
 }
 render=function(){
-  const signature=state.role==='customer'&&['menu','favorites'].includes(state.page)?JSON.stringify([state.page,state.category,state.query,state.mode,state.time,state.eta,state.profile.addresses,MENU.map(p=>[p.id,p.available]),state.page==='favorites'?state.favorites:null]):null;
+  const signature=state.role==='customer'&&['menu','favorites'].includes(state.page)?JSON.stringify([state.page,state.category,state.query,menuSearchOpen,state.mode,state.time,state.eta,state.profile.addresses,MENU.map(p=>[p.id,p.available]),state.page==='favorites'?state.favorites:null]):null;
   if(signature&&signature===menuCatalogSignature&&document.querySelector('#app .menu-list,#app .grid')){menuSyncCatalogControls();menuSaveState();return;}
   const previous=document.querySelector('.menu-categories');
   const previousCategory=previous?.querySelector('[data-category][aria-pressed=true]')?.dataset.category;
@@ -185,4 +185,3 @@ document.addEventListener('click',event=>{
   document.querySelector('[data-menu-edit="'+savedId+'"]')?.focus({preventScroll:true});toast('Изменения сохранены');
 });
 render();
-

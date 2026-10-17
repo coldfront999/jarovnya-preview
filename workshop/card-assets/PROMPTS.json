@@ -1,0 +1,291 @@
+{
+  "generator": "built-in imagegen",
+  "created": "2026-10-18",
+  "encoding": "Lossless WebP without resizing. Alpha and every RGB value where alpha > 0 were verified unchanged from the generated PNG.",
+  "promptSets": {
+    "legacy": "Edit target: the single supplied restaurant food photograph. Create a clean transparent-background product cutout for an app menu. Remove ONLY the grey tabletop/background outside the black plate. Preserve the entire black plate and every piece of the existing food, their exact arrangement, size, lighting, colors, ingredients, angle and photographic appearance as closely as possible. Do not reimagine the food. Keep a small transparent margin around the whole plate and any protruding food. Preserve a very subtle natural contact shadow immediately under the plate only. No added food, no garnish, no text, no frame, no decorative graphics, no solid background. Output one isolated plate as a PNG with real alpha transparency. This asset will be used at 170–200 pixels wide over both light kraft and dark charcoal backgrounds.",
+    "plates": "Edit target: the single supplied restaurant food photograph. Use case: background-extraction. Remove ONLY the grey tabletop/background outside the black plate. Preserve the entire black plate, all existing food pieces, exact arrangement, lighting, color, cooking texture, camera angle and portion appearance as closely as possible. Do not redesign, add or remove food. Create one isolated product cutout with real transparent alpha background and clean natural plate edges. Keep a small even transparent margin and a very subtle contact shadow immediately below the plate only. Full plate visible; square canvas. No text, no new garnish, no props, no white or grey background, no frame. The image is for an existing restaurant menu over both light kraft and dark charcoal backgrounds.",
+    "bowls": "Edit target: the single supplied restaurant food photograph. Use case: background-extraction. Remove ONLY the grey tabletop/background outside the black plate or bowl. Preserve the entire black plate or bowl, all existing food pieces, exact arrangement, lighting, color, cooking texture, camera angle and portion appearance as closely as possible. Do not redesign, add or remove food. Create one isolated product cutout with real transparent alpha background and clean natural edges. Keep a small even transparent margin and a very subtle contact shadow immediately below the dish only. Full dish visible; square canvas. No text, no new garnish, no props, no white or grey background, no frame. The image is for an existing restaurant menu over both light kraft and dark charcoal backgrounds.",
+    "cups": "Edit target: the single supplied restaurant food photograph. Use case: background-extraction. Remove ONLY the grey tabletop/background outside the black plate, bowl or cup with saucer. Preserve the entire existing container, all existing food or drink, exact arrangement, shape, lighting, colors, texture, camera angle and portion appearance as closely as possible. Preserve the handle and negative space inside the handle for cups. Do not redesign, add or remove food. Create one isolated product cutout with real transparent alpha background and clean natural edges. Keep a small even transparent margin and a very subtle contact shadow immediately below the container only. Full plate/cup visible, including any protruding bread; square canvas. No text, no new garnish, no props, no white or grey background, no frame. For an existing restaurant menu over light kraft and dark charcoal.",
+    "bottleHalf": "Use case: product-mockup. Reference image: the supplied restaurant mors bottle photograph, the 0.5 litre clear plastic bottle with a ribbed white screw cap and red berry fruit drink. Create ONE photorealistic isolated 0.5 litre bottle from this same bottle family for a restaurant menu. Match the exact compact 0.5 litre bottle silhouette, smooth cylindrical body, sloped shoulder, short neck, cap and red drink color shown. Front-facing, upright, centered, full bottle visible, square canvas. Soft realistic studio highlights, subtle natural contact shadow only directly below. Bottle occupies about 82 percent of canvas height, ample transparent margins. Fill level at the shoulder as in reference. No label, no brand, no written volume, no berries or props, no tabletop, no frame. Real transparent alpha background, including clean edges and visually translucent empty bottle neck. Preserve the packaging identity and avoid changing it to a glass bottle.",
+    "bottleSlim": "Use case: product-mockup. Reference: supplied 0.5 litre mors bottle photograph. Create one SLIM, TALL, ELONGATED one-litre clear plastic PET lemonade-style bottle filled with the same red berry mors and closed with a small white ribbed screw cap. The user rejected a bulky wide one-litre bottle: make this bottle distinctly NARROW, with a long cylindrical body, gently rounded/sloping shoulders and a short narrower neck, like a sleek lemonade bottle. Height to body-width ratio approximately 4.1:1; cap diameter approximately 60 percent of body width. Do NOT create a wide or stout juice bottle. Do not use a glass bottle or flared base. Front view, upright, full bottle with a small margin on a square canvas. Bottle occupies 84 percent of canvas height. Clean photorealistic soft studio reflections, same red drink color as reference, fill to shoulder. White screw cap. No label, no text, no written volume, no berries, no props, no solid backdrop, no frame. Real transparent alpha background, very subtle contact shadow directly below."
+  },
+  "assets": [
+    {
+      "file": "pork.webp",
+      "source": "www/photos/pork.webp",
+      "generated": "exec-00584ecb-7e94-4c0a-aa53-f5d12a34afdd.png",
+      "promptSet": "legacy"
+    },
+    {
+      "file": "shawarma-chicken.webp",
+      "source": "www/photos/shawarma-chicken.webp",
+      "generated": "exec-bba68804-4fe3-482a-a639-673a3f6b304a.png",
+      "promptSet": "legacy"
+    },
+    {
+      "file": "adjara.webp",
+      "source": "www/photos/adjara.webp",
+      "generated": "exec-cdd50230-7c8b-4e88-b049-2f4584759802.png",
+      "promptSet": "legacy"
+    },
+    {
+      "file": "potatoes.webp",
+      "source": "www/photos/potatoes.webp",
+      "generated": "exec-7c0f1b83-d23d-4097-aca4-a0fcc59846c0.png",
+      "promptSet": "legacy"
+    },
+    {
+      "file": "beef.webp",
+      "source": "www/photos/beef.webp",
+      "generated": "exec-0f05b608-9512-4aa4-a536-09a01920780a.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "lamb.webp",
+      "source": "www/photos/lamb.webp",
+      "generated": "exec-0ee0dee7-890e-4d14-b10c-84257c5dd503.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "turkey.webp",
+      "source": "www/photos/turkey.webp",
+      "generated": "exec-eb3ae31d-7e45-460f-a054-71756620870d.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "lula-red.webp",
+      "source": "www/photos/lula-red.webp",
+      "generated": "exec-d5f58e7d-a594-4036-b722-1d15f150ecab.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "lula-chicken.webp",
+      "source": "www/photos/lula-chicken.webp",
+      "generated": "exec-8cbe7cca-718f-4b1c-8b55-756c81d683db.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "breast.webp",
+      "source": "www/photos/breast.webp",
+      "generated": "exec-3dc842fa-7fa3-4d1f-91f9-a28947b82074.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "thigh.webp",
+      "source": "www/photos/thigh.webp",
+      "generated": "exec-648ec2d9-037a-41d1-a114-46aa83f387b4.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "wings.webp",
+      "source": "www/photos/wings.webp",
+      "generated": "exec-d331dd3c-051d-48d4-b495-a0f9bd921a6e.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "ribs.webp",
+      "source": "www/photos/ribs.webp",
+      "generated": "exec-0098922c-c673-4eff-88ab-12594954bb55.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "ribs-bbq.webp",
+      "source": "www/photos/ribs-bbq.webp",
+      "generated": "exec-08d7b3ef-c12d-405c-a104-a895c59d1909.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "salmon.webp",
+      "source": "www/photos/salmon.webp",
+      "generated": "exec-dff5482e-d1eb-4a55-969e-98eb79f31fe9.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "dorado.webp",
+      "source": "www/photos/dorado.webp",
+      "generated": "exec-e106b923-5855-4118-b12a-64a160e8adaa.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "seabass.webp",
+      "source": "www/photos/seabass.webp",
+      "generated": "exec-3dd40cfe-b204-4a29-92ce-af5ecb75ebf4.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "shawarma-pork.webp",
+      "source": "www/photos/shawarma-pork.webp",
+      "generated": "exec-d5f62180-b321-46ac-944d-cb8a1d4d73e9.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "shawarma-lula.webp",
+      "source": "www/photos/shawarma-lula.webp",
+      "generated": "exec-282e29a5-49fc-4d72-8653-14626f593520.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "shawarma-veg.webp",
+      "source": "www/photos/shawarma-veg.webp",
+      "generated": "exec-79a2d8b4-4e8f-4c44-a576-62fc1d3cad5d.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "gyros-chicken.webp",
+      "source": "www/photos/gyros-chicken.webp",
+      "generated": "exec-2d925aa4-f705-47f2-9d87-5384beed69b6.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "gyros-pork.webp",
+      "source": "www/photos/gyros-pork.webp",
+      "generated": "exec-5fb12d56-d272-4c3d-b021-4954126045d0.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "shashlik-lavash.webp",
+      "source": "www/photos/shashlik-lavash.webp",
+      "generated": "exec-51c268bf-9919-4950-a8dc-307f6917063d.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "imereti.webp",
+      "source": "www/photos/imereti.webp",
+      "generated": "exec-0a71b295-fd93-4970-b61b-3e9c2bbe6b62.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "megreli.webp",
+      "source": "www/photos/megreli.webp",
+      "generated": "exec-e4521883-a067-4c53-b9ac-59123ab62472.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "ossetian-pie.webp",
+      "source": "www/photos/ossetian-pie.webp",
+      "generated": "exec-653ed6ff-f946-40cc-953c-cd15f2ff5f40.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "pizza-chef.webp",
+      "source": "www/photos/pizza-chef.webp",
+      "generated": "exec-fee7cca6-fbca-42db-b52a-ad5ab3344b6e.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "pizza-bbq.webp",
+      "source": "www/photos/pizza-bbq.webp",
+      "generated": "exec-ecb13eb0-9120-4baf-be3d-3c1b8e617b83.png",
+      "promptSet": "plates"
+    },
+    {
+      "file": "pizza-pepperoni.webp",
+      "source": "www/photos/pizza-pepperoni.webp",
+      "generated": "exec-05b17fd9-dade-43ef-8c44-b696bc8d4cb4.png",
+      "promptSet": "bowls"
+    },
+    {
+      "file": "pizza-chicken.webp",
+      "source": "www/photos/pizza-chicken.webp",
+      "generated": "exec-7cd9dccf-f2af-497e-a0ae-1ffd8a88a74f.png",
+      "promptSet": "bowls"
+    },
+    {
+      "file": "grilled-veg.webp",
+      "source": "www/photos/grilled-veg.webp",
+      "generated": "exec-9060c532-4c73-4e1d-b945-f1d92eec710f.png",
+      "promptSet": "bowls"
+    },
+    {
+      "file": "mushrooms.webp",
+      "source": "www/photos/mushrooms.webp",
+      "generated": "exec-b0d012b3-08fd-43ba-857c-0099b45c81a9.png",
+      "promptSet": "bowls"
+    },
+    {
+      "file": "fries.webp",
+      "source": "www/photos/fries.webp",
+      "generated": "exec-3e63395e-866e-47c3-8599-f0094657f5fa.png",
+      "promptSet": "bowls"
+    },
+    {
+      "file": "onion.webp",
+      "source": "www/photos/onion.webp",
+      "generated": "exec-d40bb28c-2dfa-4326-b4a5-53aec1c3f016.png",
+      "promptSet": "bowls"
+    },
+    {
+      "file": "caucasian.webp",
+      "source": "www/photos/caucasian.webp",
+      "generated": "exec-e4585f22-3137-4b90-993d-382bab718491.png",
+      "promptSet": "bowls"
+    },
+    {
+      "file": "garlic.webp",
+      "source": "www/photos/garlic.webp",
+      "generated": "exec-ee6b3cde-6e2a-404b-9d68-c8f0e09a725c.png",
+      "promptSet": "bowls"
+    },
+    {
+      "file": "bread.webp",
+      "source": "www/photos/bread.webp",
+      "generated": "exec-974e3344-5efa-4fc7-ad18-b4ad402d3afd.png",
+      "promptSet": "cups"
+    },
+    {
+      "file": "thin-bread.webp",
+      "source": "www/photos/thin-bread.webp",
+      "generated": "exec-46e2f01c-8f20-4bb5-92f2-f488ecf42257.png",
+      "promptSet": "cups"
+    },
+    {
+      "file": "veg.webp",
+      "source": "www/photos/veg.webp",
+      "generated": "exec-cf8e8011-ccd6-4bd6-87a8-38e4da88729d.png",
+      "promptSet": "cups"
+    },
+    {
+      "file": "tea.webp",
+      "source": "www/photos/tea.webp",
+      "generated": "exec-22d66c59-4206-4d73-a11b-d1c9fce578bb.png",
+      "promptSet": "cups"
+    },
+    {
+      "file": "coffee.webp",
+      "source": "www/photos/coffee.webp",
+      "generated": "exec-fcfde272-eeb1-46fa-a080-bd47b0eafafd.png",
+      "promptSet": "cups"
+    },
+    {
+      "file": "lunch-pork.webp",
+      "source": "www/photos/lunch-pork.webp",
+      "generated": "exec-08b660ee-4504-4485-be17-9204adb186c6.png",
+      "promptSet": "cups"
+    },
+    {
+      "file": "lunch-breast.webp",
+      "source": "www/photos/lunch-breast.webp",
+      "generated": "exec-1fe46b58-21db-4443-9e22-013e8e1aeac9.png",
+      "promptSet": "cups"
+    },
+    {
+      "file": "lunch-thigh.webp",
+      "source": "www/photos/lunch-thigh.webp",
+      "generated": "exec-4b51c075-4d93-4f93-b72a-1db6d5d4608c.png",
+      "promptSet": "cups"
+    },
+    {
+      "file": "mors-half.webp",
+      "source": "Owner-supplied 0.5 litre mors bottle",
+      "generated": "exec-62bd5708-8c86-4ea2-b423-5af98c2ce7d7.png",
+      "promptSet": "bottleHalf"
+    },
+    {
+      "file": "mors-slim.webp",
+      "source": "Owner-supplied 0.5 litre mors bottle",
+      "generated": "exec-9b121da0-0b17-47a5-a3bf-31904fa89771.png",
+      "promptSet": "bottleSlim"
+    }
+  ]
+}

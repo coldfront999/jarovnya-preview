@@ -1,0 +1,19 @@
+/* Selected direction 1, with the column separators from direction 3. */
+.menu-list,.grid{gap:23px 20px;padding-top:10px}
+.menu-dish{border:0;border-bottom:1px solid var(--dish-divider);padding-bottom:18px;gap:10px;background:transparent;box-shadow:none;border-radius:0}
+.menu-dish:nth-child(odd):not(:last-child)::after{content:'';position:absolute;right:-10px;top:4px;bottom:0;border-right:1px solid var(--dish-divider);opacity:.65;pointer-events:none}
+.menu-photo,.menu-photo .photo-open{background:transparent;border:0;border-radius:0;box-shadow:none}
+.menu-photo .photo-open{overflow:visible}
+.menu-photo img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:transparent;border:0;border-radius:0;transform:scale(1.08)}
+.menu-photo img[src*="mors-half"]{transform:scale(.72)}
+.menu-photo img[src*="mors-slim"]{transform:scale(.94)}
+.menu-photo .favorite{top:0;right:-5px;background:transparent;border:0;color:var(--ink);width:44px;height:44px}
+.menu-photo .favorite.on{color:var(--orange)}
+.menu-photo .favorite svg{width:23px;height:23px;filter:drop-shadow(0 1px 2px var(--paper))}
+.menu-copy h2{font-size:15px;line-height:1.4;min-height:2.8em;padding-right:2px}
+.menu-copy .menu-price{font-size:15px;min-height:44px;padding:8px 11px;background:transparent}
+.menu-price:not(:disabled):hover{background:var(--orange);color:var(--accent-ink)}
+.menu-dish::before{border-radius:18px}
+.sheet .big-food,.sheet .big-food img,.thumb{background:transparent}
+.sheet .big-food img,.extra-card img{object-fit:contain}
+@media(max-width:350px){.menu-list,.grid{padding-left:16px;padding-right:16px;column-gap:14px}.menu-dish:nth-child(odd):not(:last-child)::after{right:-7px}.menu-copy h2{font-size:14px}.menu-copy .menu-price{font-size:14px;padding:8px 10px}}
