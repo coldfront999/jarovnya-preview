@@ -28,7 +28,7 @@ html[data-direction=table] .menu-photo img{transform:scale(1.08)}
 html[data-direction=table] .menu-copy h2{padding-right:2px}
 html[data-direction=table] .menu-dish:nth-child(odd):not(:last-child)::after{display:block;content:'';position:absolute;right:-10px;top:4px;bottom:0;border-right:1px solid var(--line);opacity:.65;pointer-events:none}
 .menu-photo img[src*="mors-half"]{transform:scale(.72)!important}
-.menu-photo img[src*="mors-slim"]{transform:scale(.94)!important}
+.menu-dish[data-menu-product="mors"] .menu-photo img{transform:scale(.94)!important}
 /* 2: handwritten menu notes, staggered photographs, no enclosing card surface. */
 html[data-direction=signature] .menu-list,html[data-direction=signature] .grid{gap:29px 22px;padding-top:14px}
 html[data-direction=signature] .menu-dish{border-bottom:0;padding-bottom:10px;gap:4px}

@@ -4,7 +4,7 @@ Created 18 October 2026 with the built-in imagegen tool. Extended from four samp
 
 The selected first direction uses thin separators between columns and rows, without enclosing card frames. The two other comparison directions remain available.
 
-Mors 0.5 litre follows the owner's bottle photograph. The final 1 litre version is a slim, elongated PET lemonade-style bottle with a white screw cap, following the owner's correction. The rejected wide one-litre image is not shipped.
+Mors 0.5 litre follows the owner's bottle photograph. The current 1 litre version (mors-1l-classic.webp) follows a real manufacturer's round one-litre PET bottle: https://www.zavodpet.ru/products/boottle/butylka_1_l_moloko/ (height 240 mm, body diameter 78 mm, neck 38 mm). It is filled with red mors and has the matching white screw cap. References and the exact built-in imagegen prompt are recorded in mors-1l-classic.json and PROMPTS.json. The previous thin mors-slim.webp remains only as a historical asset and is not selected by the current catalog map.
 
 The app consumes lossless WebP files, 1254×1254 RGBA with real transparency. Encoding was verified to preserve the alpha channel and every visible RGB pixel of the generated PNGs. No resizing or compositing was performed. All 46 assets were inspected on light and dark surfaces. Full prompts and generated filenames are recorded in PROMPTS.json. New source PNGs are archived under outputs/card-cutouts/png in the local workspace; the original four PNG samples below remain here for earlier comparisons.
 

@@ -6,7 +6,7 @@
 .menu-photo .photo-open{overflow:visible}
 .menu-photo img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:transparent;border:0;border-radius:0;transform:scale(1.08)}
 .menu-photo img[src*="mors-half"]{transform:scale(.72)}
-.menu-photo img[src*="mors-slim"]{transform:scale(.94)}
+.menu-dish[data-menu-product="mors"] .menu-photo img{transform:scale(.94)}
 .menu-photo .favorite{top:0;right:-5px;background:transparent;border:0;color:var(--ink);width:44px;height:44px}
 .menu-photo .favorite.on{color:var(--orange)}
 .menu-photo .favorite svg{width:23px;height:23px;filter:drop-shadow(0 1px 2px var(--paper))}
