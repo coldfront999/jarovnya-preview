@@ -1,0 +1,25 @@
+.ui-icon{display:inline-block;flex-shrink:0;vertical-align:middle;overflow:visible}
+.ui-icon path[opacity]{opacity:.16}
+.bottom button.active .ui-icon path[opacity],button[aria-pressed=true] .ui-icon path[opacity],.favorite.on .ui-icon path[opacity]{opacity:.32}
+.staff-side>button,.weight-entry button,.switch{display:flex;align-items:center;gap:9px;justify-content:flex-start}
+.switch{min-width:122px;justify-content:center}
+.staff-side>button .ui-icon{flex-shrink:0}
+.weight-entry button{justify-content:center}
+.order-card h2>.ui-icon{margin-right:6px}
+.plus,.remove,.close{display:inline-flex;align-items:center;justify-content:center}
+.bottom .nav-contact{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:20%;min-height:48px;font-size:11px;color:var(--muted);text-decoration:none}
+.order-status-badge{display:inline-flex;align-items:center;gap:7px}
+.order-status-icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.timeline li{display:flex;gap:12px;padding-left:0}
+.timeline li:before,.timeline li:after{display:none}
+.timeline .order-status-icon{color:var(--muted)}
+.timeline .done .order-status-icon{color:var(--orange)}
+.status-motion-control{min-height:44px;background:transparent;color:var(--muted);font-size:12px;text-decoration:underline;text-underline-offset:4px;padding:6px 0}
+.status-motion-wrap{text-align:center}
+.staff-status-tools{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+@keyframes order-status-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.58;transform:scale(.93)}}
+@media(prefers-reduced-motion:no-preference){html:not([data-status-motion=paused]):not([data-motion-hidden=true]) .order-status-icon.status-visible>.ui-icon{animation:order-status-pulse 2.8s ease-in-out infinite}}
+@media(prefers-reduced-motion:reduce){.order-status-icon>.ui-icon{animation:none;transform:none;opacity:1}}
+/* Explicit opt-in under Reduce Motion uses only a gentle opacity change. */
+@keyframes order-status-soft-pulse{0%,100%{opacity:1}50%{opacity:.75}}
+@media(prefers-reduced-motion:reduce){html[data-motion-override=true][data-status-motion=running]:not([data-motion-hidden=true]) .order-status-icon.status-visible>.ui-icon{animation:order-status-soft-pulse 2.8s ease-in-out infinite!important}}

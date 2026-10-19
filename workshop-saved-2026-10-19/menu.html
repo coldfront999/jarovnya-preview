@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru" data-theme="dark" data-material="urban" data-type="oswald">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#221d18">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Жаровня — собранное меню</title>
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="contrast.css"><link rel="stylesheet" href="order-options.css?v=order-audit-19"><link rel="stylesheet" href="menu.css?v=card-interactions">
+<link rel="stylesheet" href="icons.css?v=menu-pairs"><link rel="stylesheet" href="card-selected.css?v=classic-1l"></head>
+<body data-role="customer">
+<div class="menu-studio">
+  <aside class="menu-settings" aria-label="Настройка макета меню">
+    <a href="headers.html?header=compact&v=compact-background" class="studio-back">К выбору шапки</a>
+    <details class="appearance-settings"><summary>Настроить оформление</summary>
+      <label for="menu-material-select">Фон<select id="menu-material-select"><option value="craft">Крафт</option><option value="urban" selected>Уголь</option></select></label>
+      <label for="menu-theme-select">Тема<select id="menu-theme-select"><option value="light">Светлая</option><option value="dark" selected>Тёмная</option></select></label>
+      <label for="menu-font-select">Шрифт<select id="menu-font-select"><option value="oswald">1 · Oswald</option><option value="neucha">5 · Neucha</option></select></label>
+      <label for="menu-cart-motion-select">Анимация корзины<select id="menu-cart-motion-select"><option value="auto">По настройке устройства</option><option value="flight">Перелёт в корзину</option><option value="quiet">Без перелёта</option></select></label>
+    </details>
+    <p>Компактная шапка. Выбран первый вариант карточек: фото на общем фоне, тонкие разделители между блюдами. Фон, тему и шрифт можно менять.</p>
+  </aside>
+  <div class="app-stage"><div id="preview"></div><main id="app"></main></div>
+</div>
+<div id="modal"></div><div id="toast" role="status" aria-live="polite"></div>
+<script src="../vendor/purify.min.js"></script><script src="catalog.js"></script><script src="card-images.js?v=classic-1l"></script><script src="rules.js"></script><script src="menu-storage.js"></script><script src="icons.js?v=menu-pairs"></script><script src="app.js?v=order-audit-19"></script><script src="menu.js?v=order-audit-19"></script>
+</body></html>

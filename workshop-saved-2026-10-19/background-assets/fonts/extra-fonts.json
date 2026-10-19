@@ -1,0 +1,73 @@
+[
+  {
+    "id": "amaticsc",
+    "name": "Amatic SC",
+    "filename": "AmaticSC-Bold.ttf",
+    "bytes": 156180,
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/amaticsc/AmaticSC-Bold.ttf"
+  },
+  {
+    "id": "neucha",
+    "name": "Neucha",
+    "filename": "Neucha.ttf",
+    "bytes": 141432,
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/neucha/Neucha.ttf"
+  },
+  {
+    "id": "marckscript",
+    "name": "Marck Script",
+    "filename": "MarckScript-Regular.ttf",
+    "bytes": 83664,
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/marckscript/MarckScript-Regular.ttf"
+  },
+  {
+    "id": "lobster",
+    "name": "Lobster",
+    "filename": "Lobster-Regular.ttf",
+    "bytes": 406076,
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/lobster/Lobster-Regular.ttf"
+  },
+  {
+    "id": "pangolin",
+    "name": "Pangolin",
+    "filename": "Pangolin-Regular.ttf",
+    "bytes": 593408,
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/pangolin/Pangolin-Regular.ttf"
+  },
+  {
+    "id": "stalinistone",
+    "name": "Stalinist One",
+    "filename": "StalinistOne-Regular.ttf",
+    "bytes": 48808,
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/stalinistone/StalinistOne-Regular.ttf"
+  },
+  {
+    "id": "rubikmonoone",
+    "name": "Rubik Mono One",
+    "filename": "RubikMonoOne-Regular.ttf",
+    "bytes": 141088,
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/rubikmonoone/RubikMonoOne-Regular.ttf"
+  },
+  {
+    "id": "unbounded",
+    "name": "Unbounded",
+    "filename": "Unbounded[wght].ttf",
+    "bytes": 778272,
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/unbounded/Unbounded%5Bwght%5D.ttf"
+  },
+  {
+    "id": "yesevaone",
+    "name": "Yeseva One",
+    "filename": "YesevaOne-Regular.ttf",
+    "bytes": 108016,
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/yesevaone/YesevaOne-Regular.ttf"
+  },
+  {
+    "id": "podkova",
+    "name": "Podkova",
+    "filename": "Podkova[wght].ttf",
+    "bytes": 163368,
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/podkova/Podkova%5Bwght%5D.ttf"
+  }
+]
+

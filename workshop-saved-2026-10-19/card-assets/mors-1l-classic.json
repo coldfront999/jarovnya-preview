@@ -1,0 +1,16 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-18",
+  "asset": "card-assets/mors-1l-classic.webp",
+  "sourceGeometry": "https://www.zavodpet.ru/products/boottle/butylka_1_l_moloko/",
+  "referenceImage": "https://www.zavodpet.ru/upload/iblock/bde/bdef19706105d9f96c715ab2a073aa14.JPG",
+  "manufacturerDimensionsMm": {
+    "height": 240,
+    "bodyDiameter": 78,
+    "neck": 38
+  },
+  "ownerReference": "Owner-supplied 0.5 litre red mors bottle",
+  "generated": "exec-215a6729-7772-4583-b301-4f5a75af3993.png",
+  "prompt": "Use case: product-mockup / precise-object-edit. Create ONE photorealistic menu cutout of a normal commercially manufactured 1 LITRE clear PET round milk/juice/mors bottle filled with red berry mors and closed with a white ribbed screw cap. INPUT IMAGE 1 (red drink 0.5L owner photo): supporting reference ONLY for the drink's red color, clear plastic, white cap, natural product-photo look and general bottle family. INPUT IMAGE 2 (empty manufacturer's 1L bottle): the PRIMARY AND AUTHORITATIVE GEOMETRY reference. Faithfully use the second image's real normal one-litre bottle shape and proportions: standard broad straight cylindrical body, smooth sloping rounded shoulders, short wide neck, normal flat-rounded PET base. Manufacturer dimensions: bottle height approximately 240 mm, body diameter 78 mm, neck 38 mm. Thus the body must be visibly wider than a thin tall tube, with whole-bottle height/body-width near 3.1:1, and white cap diameter about half body diameter. Do not elongate or slim it beyond the second image. Fill this real one-litre bottle with the red mors from image 1 up to just below the shoulder, retain a short transparent headspace and realistic PET reflections. Add a white ribbed screw cap like image 1 over the threaded neck. Preserve normal photographic perspective and real packaging construction. Upright straight-on front product shot, centered, complete bottle visible, square canvas, bottle occupies about 86 percent of canvas height. Soft diffuse lighting matching the owner's half-litre example, very subtle natural contact shadow directly below. Actual transparent alpha background, clean edges. No label, no branding, no text or volume lettering, no berries or props, no pedestal, no frame, no solid backdrop. No redesign, no futuristic bottle, no glass bottle, no extremely thin cylindrical flask. The result should look like the real 1L version from the same ordinary PET bottle family as the user's half-litre.",
+  "encoding": "Lossless WebP. Generated alpha and visible RGB values verified unchanged; no resizing."
+}

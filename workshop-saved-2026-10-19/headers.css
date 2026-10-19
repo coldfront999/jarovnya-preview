@@ -1,0 +1,65 @@
+.header-lab{gap:48px}
+.header-choices{display:grid;gap:9px}
+.header-choices button{display:grid;gap:5px;text-align:left;padding:13px 16px;background:#fff;color:#242422;border:1px solid #aaaca3;border-radius:5px;min-height:64px}
+.header-choices strong{font-size:15px;font-weight:600}.header-choices span{font-size:12px;line-height:1.4;color:#53554a}
+.header-choices button[aria-pressed=true]{border:2px solid #242422;padding:12px 15px;background:#e7e7df}
+.header-choices button:hover{background:#e7e7df}
+.header-lab .phone{aspect-ratio:auto;min-height:710px;padding-bottom:120px}
+.app-header{padding:26px 22px 22px;font-family:'Golos Text',sans-serif;color:var(--fg)}
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0}
+.town{font-size:13px;font-weight:500}
+.logo-shell{background:transparent;padding:0;display:block;border-radius:0;max-width:100%;flex-shrink:0;position:relative}
+.logo-shell img{display:block;object-fit:contain;width:100%;height:auto}
+.phone-icon{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:50%;text-decoration:none}
+.phone-icon:hover{background:var(--surface)}
+.receive-controls{display:flex;gap:7px;margin:17px 0}
+.receive-controls button{flex:1;min-width:0;min-height:45px;background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:5px;font-size:14px;font-weight:500;padding:10px 9px}
+.receive-controls button[aria-pressed=true]{color:var(--button-ink);background:var(--button);border-color:var(--button)}
+.receive-controls button:hover{filter:brightness(.94)}
+.location-button{display:flex;gap:11px;align-items:center;text-align:left;color:var(--fg);border:0;background:transparent;width:100%;min-height:55px;padding:9px 0}
+.location-button .address-copy{min-width:0;flex:1}
+.location-button strong{display:block;font-size:15px;line-height:1.35;font-weight:600;overflow-wrap:anywhere}
+.location-button small{display:block;font-size:12px;line-height:1.45;margin-top:4px;overflow-wrap:anywhere}
+.location-button svg{flex-shrink:0}
+.location-button:hover{color:var(--fg);text-decoration:underline;text-underline-offset:4px}
+.delivery-rule{font-size:12px;line-height:1.5;margin:12px 0 0;color:var(--fg)}
+.header-sign{border-bottom:1px solid var(--line)}
+.header-sign .logo-shell{width:246px;margin:20px auto 18px;padding:0;background:transparent;border-radius:0;position:relative}
+/* Reuse the logo's exact alpha outline; keep the colored flame untouched. */
+.phone.theme-dark .logo-shell::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,var(--fg) 0 39%,transparent 39% 61%,var(--fg) 61% 100%);-webkit-mask:url('../brand/logo-reconstruction-unapproved.png') center / 100% 100% no-repeat;mask:url('../brand/logo-reconstruction-unapproved.png') center / 100% 100% no-repeat}
+.header-sign .location-button{border-top:1px solid var(--line)}
+.header-compact{padding-top:23px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.header-compact .logo-shell{width:174px}
+.header-compact .location-button{margin-top:12px}
+.header-compact .receive-controls{margin:10px 0 0}
+.header-address .logo-shell{width:189px}
+.address-ticket{background:var(--surface);border:1px solid var(--line);padding:8px 17px 15px;margin-top:21px;border-radius:8px}
+.header-address .location-button strong{font-family:inherit;font-size:22px;font-weight:600;line-height:1.2}
+.phone.oswald .header-address .location-button strong{font-family:Oswald,sans-serif;font-size:25px}
+.phone.neucha .header-address .location-button strong{font-family:Neucha,sans-serif;font-size:25px;font-weight:400}
+.header-address .receive-controls{margin:14px 0 0}
+.header-address .delivery-rule{padding-left:1px;margin-top:10px}
+.sample-menu{padding:20px 22px 0;color:var(--fg)}
+.header-lab .phone .sample-menu h2{font-family:Oswald,sans-serif;font-size:37px;font-weight:600;line-height:1.12;letter-spacing:-.4px;margin:0 0 18px;text-wrap:balance}
+.header-lab .phone.neucha .sample-menu h2{font-family:Neucha,sans-serif;font-size:38px;font-weight:400}
+.sample-dish{display:flex;gap:15px;align-items:center;font-family:'Golos Text',sans-serif}
+.sample-dish img{width:112px;height:112px;border-radius:7px;object-fit:cover;flex-shrink:0}
+.sample-dish div{min-width:0}.sample-dish h3{font-size:16px;line-height:1.35;font-weight:600;margin:0;text-wrap:balance}
+.sample-dish p{font-size:16px;line-height:1.5;margin:10px 0 5px;font-variant-numeric:tabular-nums}
+.sample-dish small{font-size:11px;line-height:1.5;display:block}
+.sample-note{font-family:'Golos Text',sans-serif;font-size:12px;line-height:1.5;margin:19px 0 0;max-width:240px}
+.header-navigation{display:flex;align-items:center;justify-content:space-between;gap:8px;max-width:390px;margin:14px auto 0}
+.header-navigation button{font-size:12px;min-height:44px;background:#fff;color:#242422;border:1px solid #aaaca3;border-radius:5px;padding:9px}
+.header-navigation button:hover{background:#e7e7df}.header-navigation span{font-size:12px;line-height:1.4;text-align:center}
+.address-sheet{position:absolute;z-index:3;bottom:0;left:0;right:0;color:var(--fg);background:var(--surface);border-top:1px solid var(--line);padding:20px 22px 26px;font-family:'Golos Text',sans-serif;animation:open-panel .2s ease-out}
+.sheet-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}.sheet-title h3{font-size:22px;line-height:1.2;margin:0}
+.address-sheet form{display:grid;gap:11px}.address-sheet label{font-size:13px}.address-sheet input{min-width:0;min-height:46px;font:400 14px 'Golos Text',sans-serif;background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:4px;padding:11px;width:100%;caret-color:var(--fg)}
+.address-sheet input::placeholder{color:var(--fg);opacity:.75}
+.sheet-save{font:600 14px 'Golos Text',sans-serif;min-height:46px;border:0;border-radius:4px;background:var(--button);color:var(--button-ink);padding:12px}
+.sheet-note{font-size:12px;line-height:1.5;margin:14px 0 0}.address-sheet #pickup-address{font-size:15px;line-height:1.6;margin:0}
+.header-lab .phone :focus-visible{outline-color:var(--fg)}
+.header-lab .theme-buttons{gap:10px}.header-lab .font-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:800px){.header-lab{gap:28px}.header-lab .preview-wrap{position:static}.header-lab .phone{min-height:690px}.header-choices button{min-height:62px}}
+@media(max-width:375px){.app-header{padding-left:18px;padding-right:18px}.header-sign .logo-shell{width:230px}.header-compact .logo-shell{width:156px}.header-address .logo-shell{width:174px}.sample-menu{padding-left:18px;padding-right:18px}.sample-dish img{width:94px;height:94px}.sample-dish h3{font-size:15px}.header-lab .phone{min-height:650px}.address-ticket{padding-left:13px;padding-right:13px}}
+@media(prefers-reduced-motion:reduce){.address-sheet{animation:none}}
+

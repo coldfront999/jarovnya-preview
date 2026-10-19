@@ -1,0 +1,59 @@
+.direction-choices{display:grid;gap:10px;margin:24px 0 16px}
+.direction-choices button{display:grid;gap:6px;min-height:68px;padding:13px 15px;border:1px solid #a28c95;border-radius:12px;background:transparent;color:#34262c;text-align:left;touch-action:manipulation}
+.direction-choices strong{font-size:15px;line-height:1.4}
+.direction-choices span{font-size:12px;line-height:1.5}
+.direction-choices button:hover{background:#e9dfe3}
+.direction-choices button[aria-pressed=true]{background:#4d2130;border-color:#4d2130;color:#fff}
+.menu-list,.grid{gap:23px 20px;padding-top:10px}
+.menu-dish{border:0;border-bottom:1px solid var(--line);padding-bottom:18px;gap:10px;background:transparent;box-shadow:none;border-radius:0}
+.menu-dish:nth-child(odd):not(:last-child)::after{display:none}
+.menu-photo{background:transparent}
+.menu-photo .photo-open{background:transparent;border:0;border-radius:0;overflow:visible;box-shadow:none}
+.menu-photo img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:transparent;border:0;border-radius:0}
+.menu-photo .favorite{top:0;right:-5px;background:transparent;border:0;color:var(--ink);width:44px;height:44px}
+.menu-photo .favorite.on{color:var(--orange)}
+.menu-photo .favorite svg{width:23px;height:23px;filter:drop-shadow(0 1px 2px var(--paper))}
+.menu-copy h2{font-size:15px;line-height:1.4;min-height:2.8em}
+.menu-copy .menu-price{font-size:15px;min-height:44px;background:transparent;gap:7px;padding:8px 11px}
+.menu-price:not(:disabled):hover{background:var(--orange);color:var(--accent-ink)}
+.dish-category{display:none}
+.menu-availability{font-size:12px;font-weight:600}
+.menu-empty{grid-column:1/-1}
+.shell{box-shadow:none}
+.sheet .big-food{background:transparent}
+.sheet .big-food img{background:transparent;object-fit:contain}
+.menu-dish::before{border-radius:18px}
+/* 1: a shared table, restrained alignment and full natural plate silhouettes. */
+html[data-direction=table] .menu-photo img{transform:scale(1.08)}
+html[data-direction=table] .menu-copy h2{padding-right:2px}
+html[data-direction=table] .menu-dish:nth-child(odd):not(:last-child)::after{display:block;content:'';position:absolute;right:-10px;top:4px;bottom:0;border-right:1px solid var(--line);opacity:.65;pointer-events:none}
+.menu-photo img[src*="mors-half"]{transform:scale(.72)!important}
+.menu-dish[data-menu-product="mors"] .menu-photo img{transform:scale(.94)!important}
+/* 2: handwritten menu notes, staggered photographs, no enclosing card surface. */
+html[data-direction=signature] .menu-list,html[data-direction=signature] .grid{gap:29px 22px;padding-top:14px}
+html[data-direction=signature] .menu-dish{border-bottom:0;padding-bottom:10px;gap:4px}
+html[data-direction=signature] .menu-photo img{transform:rotate(-7deg) scale(1.12)}
+html[data-direction=signature] .menu-dish:nth-child(even) .menu-photo{padding-top:21px}
+html[data-direction=signature] .menu-dish:nth-child(even) .menu-photo img{transform:rotate(7deg) scale(1.12)}
+html[data-direction=signature] .menu-copy h2{font-family:Neucha,sans-serif;font-weight:400;font-size:25px;line-height:1.12;min-height:2.24em;letter-spacing:0}
+html[data-direction=signature] .menu-dish:nth-child(even) .menu-copy h2{transform:rotate(1deg)}
+html[data-direction=signature] .dish-category{display:flex;align-items:center;gap:5px;margin-bottom:6px;color:var(--muted);font-family:Neucha,sans-serif;font-size:16px}
+html[data-direction=signature] .dish-category svg{width:19px;height:19px;color:var(--orange);transform:rotate(-12deg)}
+html[data-direction=signature] .menu-copy::after{content:'';display:block;border-top:1px solid var(--line);width:45%;margin-top:15px;transform:rotate(-3deg);align-self:flex-start}
+html[data-direction=signature] .menu-copy .menu-price{margin-top:14px;border-radius:46% 54% 49% 51% / 48% 48% 52% 52%;transform:rotate(-2deg)}
+html[data-direction=signature] .proposal-rate{margin-top:8px!important}
+/* 3: a typographic menu with small kitchen engravings and column separators. */
+html[data-direction=grill] .menu-list,html[data-direction=grill] .grid{gap:26px 25px;padding-top:17px}
+html[data-direction=grill] .menu-dish{display:flex;flex-direction:column;gap:10px;padding-bottom:12px;border-bottom:0}
+html[data-direction=grill] .menu-copy{display:contents}
+html[data-direction=grill] .dish-category{display:flex;order:-3;align-items:center;gap:7px;color:var(--muted);font-size:12px;min-height:30px}
+html[data-direction=grill] .dish-category svg{color:var(--orange);width:26px;height:26px}
+html[data-direction=grill] .menu-copy h2{order:-2;font-family:Oswald,sans-serif;font-size:24px;line-height:1.1;font-weight:500;min-height:2.2em;letter-spacing:-.3px}
+html[data-direction=grill] .menu-photo{order:0;margin-top:0}
+html[data-direction=grill] .menu-photo img{transform:scale(1.07)}
+html[data-direction=grill] .menu-copy .menu-price{order:1;margin:0;align-self:flex-start;background:var(--palette-surface)}
+html[data-direction=grill] .proposal-rate{order:2;margin-top:0!important}
+html[data-direction=grill] .menu-availability{order:3}
+html[data-direction=grill] .menu-dish:nth-child(odd):not(:last-child)::after{display:block;content:'';position:absolute;right:-13px;top:4px;bottom:0;border-right:1px solid var(--line);opacity:.65}
+@media(max-width:900px){.direction-choices{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:16px 0 10px}.direction-choices button{min-height:56px;padding:9px 6px;text-align:center}.direction-choices strong{font-size:12px}.direction-choices span{display:none}.proposal-controls>p{font-size:12px}.menu-list,.grid{gap:22px 18px}}
+@media(max-width:350px){.menu-list,.grid{padding-left:16px;padding-right:16px;column-gap:14px}.menu-copy h2{font-size:14px}html[data-direction=signature] .menu-copy h2{font-size:23px}html[data-direction=grill] .menu-copy h2{font-size:22px}.menu-copy .menu-price{font-size:14px;padding:8px 10px}}
