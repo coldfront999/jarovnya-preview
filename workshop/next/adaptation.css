@@ -43,3 +43,7 @@ html[data-theme=dark] .reference-brand img{filter:brightness(0) invert(1)}
 .staff-shell .weight-entry button{font-weight:650}
 .staff-shell .badge{color:var(--orange);background:var(--reference-accent-soft)}
 html[data-theme=dark] .staff-head img{filter:brightness(0) invert(1)}
+
+html[data-theme] .menu-categories [data-category],html[data-theme] .menu-categories [data-category][aria-pressed=true]{border:0;border-radius:0;padding:0;background:transparent;scroll-margin-inline:20px;color:var(--muted)}
+html[data-theme] .menu-categories [data-category][aria-pressed=true]{color:var(--orange)}
+.menu-categories [data-category]>span:last-child{max-width:65px;line-height:1.35}
