@@ -58,7 +58,7 @@ renderMenu = function () {
   const hours = state.time === 'closed' ? 'Сейчас закрыто. Принимаем заказы с 10:00.' : state.time === 'late' ? 'После 20:15 — только шаурма самовывозом.' : state.time === 'friday' ? 'Бизнес-ланчи доступны с понедельника по четверг.' : 'Бизнес-ланчи · Пн–Чт, 11:00–16:00';
   return header() + bentoBoard() + (state.time !== 'normal' ? '<p class="menu-hours">' + hours + '</p>' : '') +
     '<div id="menu-search-panel" class="menu-search-scene"><label class="menu-search">' + icon('search', 20) +
-    '<input id="search" type="search" autocomplete="off" aria-label="Поиск блюда" placeholder="Шаурма, пирог, шашлык" value="' + escapeHTML(state.query) + '"></label><button class="search-done" data-close-search type="button">Закрыть</button></div>' +
+    '<input id="search" type="search" autocomplete="off" aria-label="Поиск блюда" placeholder="Шаурма, пирог, шашлык" value="' + escapeHTML(state.query) + '"></label><div class="search-profile">' + menuProfile() + '</div><button class="search-done" data-close-search type="button">Закрыть</button></div>' +
     '<section class="menu-catalog-wrap" aria-label="Блюда меню"><div class="menu-catalog"><nav class="menu-categories" aria-label="Категории меню">' + CATEGORIES.map(c =>
       '<button data-category="' + escapeHTML(c) + '" aria-pressed="' + (state.category === c) + '">' + escapeHTML(c) + '</button>').join('') +
     '</nav><div class="menu-heading"><h2>' + escapeHTML(state.query ? 'Нашлось в меню' : state.category) + '</h2><span>' + dishes.length +

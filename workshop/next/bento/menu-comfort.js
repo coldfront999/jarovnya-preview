@@ -1,14 +1,15 @@
-/* Persistent cart shortcut uses the same quote as checkout, never a fake weighted total. */
-function syncFloatingCart(){
- let button=document.querySelector('.floating-cart');
- if(!button){button=document.createElement('button');button.type='button';button.className='floating-cart';button.dataset.page='cart';document.body.append(button);}
- button.hidden=state.role!=='customer'||state.page!=='menu'||!state.cart.length;
- if(button.hidden)return;
- const quote=Rules.quote(state.cart,{mode:state.mode,zone:state.zone,birthday:state.birthday});
- const unknown=state.cart.some(l=>l.unit==='100g'&&l.actualGrams==null);
- setHTML(button,icon('bag',23)+'<span>'+ (unknown?'В корзину':money(quote.subtotal))+(unknown?'<small>Вес уточним</small>':'')+'</span>');
- button.setAttribute('aria-label',unknown?'Открыть корзину, стоимость после взвешивания':'Открыть корзину, блюда на '+money(quote.subtotal));
+/* Keep search and the account entry within reach while browsing the menu. */
+let comfortHeader=null;
+const comfortObserver=new IntersectionObserver(entries=>{
+ for(const entry of entries)if(entry.target===comfortHeader)document.body.classList.toggle('menu-scrolled',!entry.isIntersecting);
+},{threshold:0});
+function syncMenuComfort(){
+ const header=state.role==='customer'&&state.page==='menu'?document.querySelector('.bento-header'):null;
+ if(header===comfortHeader)return;
+ comfortObserver.disconnect();comfortHeader=header;
+ document.body.classList.remove('menu-scrolled');
+ if(header)comfortObserver.observe(header);
 }
 const comfortRender=render;
-render=function(){comfortRender();syncFloatingCart();};
-syncFloatingCart();
+render=function(){comfortRender();syncMenuComfort();};
+syncMenuComfort();
