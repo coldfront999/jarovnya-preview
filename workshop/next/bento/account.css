@@ -1,0 +1,19 @@
+/* One accent for the birthday benefit; account navigation stays quiet. */
+.account-page{padding-bottom:32px;color:var(--ink)}
+.account-identity{display:flex;gap:15px;align-items:center;margin:8px 0 23px;min-width:0}
+.account-avatar{display:grid;place-items:center;flex:0 0 62px;width:62px;height:62px;border-radius:50%;background:var(--soft);color:var(--ink);font-size:27px;font-weight:750}
+.account-identity>div:last-child{min-width:0}.account-identity h2{margin:0;font-size:24px;line-height:1.2;letter-spacing:-.65px;font-weight:800;overflow-wrap:anywhere}
+.account-identity p{margin:7px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
+.account-login{margin-bottom:18px}.account-login .cta{font-size:14px;min-height:48px}.account-login p{font-size:11px;color:var(--muted);line-height:1.5;margin:10px 0 0}
+.account-nav{border-top:1px solid var(--line);margin-bottom:24px}
+.account-row{display:flex;align-items:center;gap:14px;width:100%;padding:17px 0;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);text-align:left;text-decoration:none;min-height:76px;border-radius:0}
+.account-row>.ui-icon{flex:0 0 24px}.account-row-copy{display:block;flex:1;min-width:0}.account-row strong{display:block;font-size:15px;font-weight:700;line-height:1.4}.account-row small{display:block;margin-top:4px;font-size:12px;line-height:1.5;color:var(--muted);overflow-wrap:anywhere}.account-chevron{margin-left:auto;color:var(--muted);font-size:25px;font-weight:400;line-height:1;flex-shrink:0}
+.account-row:hover{background:var(--soft)}
+.account-birthday{padding:19px;border-radius:20px;background:var(--bento-main);color:#0D0D0D;margin:0 0 20px}
+.account-birthday-heading{display:flex;gap:12px;align-items:center}.account-birthday-heading>div{flex:1;min-width:0}.account-birthday h3{font-size:17px;line-height:1.3;letter-spacing:-.3px;margin:0;max-width:220px}.account-birthday-heading p{font-size:15px;line-height:1.4;font-weight:650;margin:7px 0 0}.account-gift{flex-shrink:0}.account-birthday-note{font-size:12px;line-height:1.6;margin:14px 0 0;color:#303123;max-width:48ch}
+.account-details{border-bottom:1px solid var(--line)}.account-details>summary{display:flex;align-items:center;gap:14px;min-height:60px;cursor:pointer;font-size:15px;font-weight:700;list-style:none}.account-details>summary::-webkit-details-marker{display:none}.account-details[open]>summary .account-chevron{transform:rotate(90deg)}
+.account-details form{padding:0 0 20px}.account-details .field{margin:12px 0 16px;font-size:13px}.account-details input{min-height:48px;min-width:0;width:100%;box-sizing:border-box;color:var(--ink);background:var(--paper)}.account-details .secondary{width:100%;min-height:46px;background:var(--soft);color:var(--ink);font-size:13px}
+.account-demo{margin-top:16px;color:var(--muted);font-size:12px;line-height:1.5}.account-demo summary{cursor:pointer;min-height:44px;align-content:center}.account-demo label{display:flex;gap:10px;align-items:center;min-height:44px}.account-demo input{width:20px;height:20px;accent-color:var(--ink)}
+.account-restaurant{margin-top:25px;font-size:12px;line-height:1.7;color:var(--muted)}.account-restaurant strong{font-size:13px;color:var(--ink)}.account-restaurant p{margin:7px 0}.account-restaurant small{display:block;font-size:11px;margin-top:14px}
+.account-page :is(button,a,input,summary):focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+@media(max-width:350px){.account-identity h2{font-size:21px}.account-identity{gap:12px}.account-avatar{width:54px;height:54px;flex-basis:54px}.account-birthday{padding:16px}.account-birthday h3{font-size:16px}}

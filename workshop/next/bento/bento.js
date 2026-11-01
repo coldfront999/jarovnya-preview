@@ -27,17 +27,16 @@ header = function () {
     '<span>Губкинский</span>' + menuProfile() + '</div><div class="bento-address-row"><button class="reference-location" data-menu-address aria-label="' +
     (state.mode === 'pickup' ? 'Адрес самовывоза' : 'Адрес доставки') + '">' + icon('pin', 19) + '<strong>' +
     escapeHTML(state.mode === 'pickup' ? '1 мкр., д. 7 · ТЦ «Русь»' : state.profile.addresses[0] || 'Куда привезти?') +
-    '</strong></button><button class="reference-search" data-menu-search aria-label="Поиск блюда" aria-controls="menu-search-panel" aria-expanded="' +
-    menuSearchOpen + '">' + icon('search', 20) + '</button></div>' + menuModes() + '</header>';
+    '</strong></button></div>' + menuModes() + '</header>';
 };
 
 function bentoBoard() {
   return '<section class="bento-board" aria-label="Выберите, что приготовить">' +
-    '<button class="bento-tile bento-grill" data-category="Мангал"><span class="bento-tile-title">Мангал</span><span class="bento-tile-caption">С огня к столу</span><span class="bento-tile-label">' + icon('arrow', 20) +
+    '<button class="bento-tile bento-grill" data-category="Мангал"><span class="bento-tile-title">Мангал</span><span class="bento-tile-caption">С огня к столу</span><span class="bento-tile-label">' + '' +
     '</span><img src="images/thumb/pork.webp" alt="" width="384" height="384" fetchpriority="high" decoding="async"></button>' +
-    '<button class="bento-tile bento-shawarma" data-category="Шаурма"><span class="bento-tile-title">Шаурма</span>' + icon('arrow', 19) +
+    '<button class="bento-tile bento-shawarma" data-category="Шаурма"><span class="bento-tile-title">Шаурма</span>' + '' +
     '<img src="images/thumb/shawarma-chicken.webp" alt="" width="384" height="384" decoding="async"></button>' +
-    '<button class="bento-tile bento-pies" data-category="Пироги и пицца"><span class="bento-tile-title">Пироги<br>и пицца</span>' + icon('arrow', 19) +
+    '<button class="bento-tile bento-pies" data-category="Пироги и пицца"><span class="bento-tile-title">Пироги<br>и пицца</span>' + '' +
     '<img src="images/thumb/ossetian-pie.webp" alt="" width="384" height="384" decoding="async"></button></section>';
 }
 
@@ -58,10 +57,9 @@ renderMenu = function () {
   if (state.query) dishes = MENU.filter(p => p.name.toLocaleLowerCase('ru-RU').includes(state.query.toLocaleLowerCase('ru-RU')));
   dishes = menuDisplayDishes(dishes);
   const hours = state.time === 'closed' ? 'Сейчас закрыто. Принимаем заказы с 10:00.' : state.time === 'late' ? 'После 20:15 — только шаурма самовывозом.' : state.time === 'friday' ? 'Бизнес-ланчи доступны с понедельника по четверг.' : 'Бизнес-ланчи · Пн–Чт, 11:00–16:00';
-  return header() + (state.time !== 'normal' ? '<p class="menu-hours">' + hours + '</p>' : '') +
-    '<div id="menu-search-panel" class="menu-search-scene" ' + (menuSearchOpen ? '' : 'hidden') + '><label class="menu-search">' + icon('search', 20) +
-    '<input id="search" type="search" autocomplete="off" aria-label="Поиск блюда" placeholder="Найти блюдо" value="' + escapeHTML(state.query) + '"></label></div>' +
-    (!state.query ? bentoBoard() : '') +
+  return header() + bentoBoard() + (state.time !== 'normal' ? '<p class="menu-hours">' + hours + '</p>' : '') +
+    '<div id="menu-search-panel" class="menu-search-scene"><label class="menu-search">' + icon('search', 20) +
+    '<input id="search" type="search" autocomplete="off" aria-label="Поиск блюда" placeholder="Шаурма, пирог, шашлык" value="' + escapeHTML(state.query) + '"></label></div>' +
     '<section class="menu-catalog-wrap" aria-label="Блюда меню"><div class="menu-catalog"><nav class="menu-categories" aria-label="Категории меню">' + CATEGORIES.map(c =>
       '<button data-category="' + escapeHTML(c) + '" aria-pressed="' + (state.category === c) + '">' + escapeHTML(c) + '</button>').join('') +
     '</nav><div class="menu-heading"><h2>' + escapeHTML(state.query ? 'Нашлось в меню' : state.category) + '</h2><span>' + dishes.length +
