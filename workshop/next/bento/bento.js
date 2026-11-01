@@ -23,8 +23,7 @@ document.addEventListener('click', event => {
 });
 
 header = function () {
-  return '<header class="m-header bento-header"><div class="bento-brandrow">' + menuBrand() +
-    '<span>Губкинский</span>' + menuProfile() + '</div><div class="bento-address-row"><button class="reference-location" data-menu-address aria-label="' +
+  return '<header class="m-header bento-header"><div class="bento-brandrow">' + '<div class="bento-brand-city">' + menuBrand() + '<span>Губкинский</span></div>' + menuProfile() + '</div><div class="bento-address-row"><button class="reference-location" data-menu-address aria-label="' +
     (state.mode === 'pickup' ? 'Адрес самовывоза' : 'Адрес доставки') + '">' + icon('pin', 19) + '<strong>' +
     escapeHTML(state.mode === 'pickup' ? '1 мкр., д. 7 · ТЦ «Русь»' : state.profile.addresses[0] || 'Куда привезти?') +
     '</strong></button></div>' + menuModes() + '</header>';
