@@ -32,7 +32,7 @@ header = function () {
 
 function bentoBoard() {
   return '<section class="bento-board" aria-label="Выберите, что приготовить">' +
-    '<button class="bento-tile bento-photo-tile bento-grill" data-category="Мангал"><span class="bento-tile-title">Мангал</span><span class="bento-tile-caption">С огня к столу</span><span class="bento-tile-label">' + '' +
+    '<button class="bento-tile bento-photo-tile bento-grill" data-category="Мангал"><span class="bento-tile-title">Мангал</span><span class="bento-tile-label">' + '' +
     '</span><img src="images/categories/mangal.webp" alt="" width="384" height="384" fetchpriority="high" decoding="async"></button>' +
     '<button class="bento-tile bento-photo-tile bento-shawarma" data-category="Шаурма"><span class="bento-tile-title">Шаурма</span>' + '' +
     '<img src="images/categories/shawarma.webp" alt="" width="384" height="384" decoding="async"></button>' +
