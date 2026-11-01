@@ -26,6 +26,8 @@ body:not([data-role=customer]) .menu-studio{display:block;max-width:1220px}body:
 /* Compact search above the continuous menu surface. */
 .menu-search-scene{margin:14px 24px 0;border-bottom:1px solid var(--line);padding-bottom:8px}
 .menu-search-scene .menu-search{width:100%;margin:0;border:0;padding:0}
+/* Higher specificity keeps later theme styles from triggering iOS input zoom. */
+.menu-search-scene .menu-search input{font:400 16px/1.5 'Golos Text',sans-serif}
 .menu-catalog-wrap{position:relative;margin-top:0}
 .menu-catalog{position:relative;background:transparent;padding-top:9px}
 .menu-heading,.menu-categories,.menu-list,.photo-note{background:transparent}

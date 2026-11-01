@@ -52,7 +52,7 @@ render=function(){
     for(const selector of ['.menu-heading','.menu-list'])document.querySelector(selector).replaceWith(fresh.querySelector(selector));
     previous.querySelectorAll('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.category===state.category)));
     const search=document.getElementById('search');if(search&&search.value!==state.query)search.value=state.query;
-    if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelector('.menu-list').animate([{opacity:.65,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:180,easing:'ease-out'});
+    if(previousCategory!==state.category&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelector('.menu-list').animate([{opacity:.65,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:180,easing:'ease-out'});
     menuSaveState();
   }else menuOriginalRender();
   menuCatalogSignature=signature;
@@ -74,6 +74,30 @@ render=function(){
   document.querySelectorAll('.bottom [data-page]').forEach(b=>b.setAttribute('aria-current',b.dataset.page===state.page?'page':'false'));
 };
 document.addEventListener('scroll',event=>{if(event.target.classList?.contains('menu-categories'))menuCategoryScroll=event.target.scrollLeft;},{capture:true,passive:true});
+
+// Keep the live input (and its caret/composition) while only results are updated.
+// The shared handler refocuses after every character, which can pan iOS Safari.
+document.addEventListener('input',event=>{
+  if(event.target.id!=='search'||state.role!=='customer'||state.page!=='menu')return;
+  event.stopImmediatePropagation();
+  state.query=event.target.value;
+  render();
+},true);
+function menuRevealSearch(){
+  const search=document.activeElement;
+  if(search?.id!=='search'||!matchMedia('(max-width: 600px)').matches)return;
+  const viewport=window.visualViewport;
+  const top=(viewport?.offsetTop||0)+12;
+  const panel=search.closest('.menu-search-scene');
+  if(panel)window.scrollBy({top:panel.getBoundingClientRect().top-top,behavior:'instant'});
+}
+let menuSearchViewportTimer;
+document.addEventListener('focusin',event=>{if(event.target.id==='search')menuRevealSearch();});
+// Run once after the keyboard settles, rather than chasing its animation frames.
+window.visualViewport?.addEventListener('resize',()=>{
+  clearTimeout(menuSearchViewportTimer);
+  if(document.activeElement?.id==='search')menuSearchViewportTimer=setTimeout(menuRevealSearch,120);
+});
 document.addEventListener('change',event=>{for(const k of Object.keys(menuChoices))if(event.target.id==='menu-'+k+'-select'&&menuChoices[k].includes(event.target.value)){menuAppearance[k]=event.target.value;applyMenuAppearance();}});
 document.addEventListener('click',event=>{const trigger=event.target.closest('[data-menu-address],.m-header [data-mode=delivery]');if(trigger){const pickup=state.mode==='pickup'&&!trigger.hasAttribute('data-profile-address');setHTML($('#modal'),'<div class="sheet-back menu-address-back"><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="menu-address-title"><button class="close" data-menu-close aria-label="Закрыть адрес">'+icon('back',22)+'</button><h2 id="menu-address-title">'+(pickup?'Где забрать заказ':'Адрес доставки')+'</h2>'+(pickup?'<p class="menu-pickup-address">Губкинский, 1 микрорайон, д. 7, ТЦ «Русь», 1 этаж</p>':'<form id="menu-address-form"><label class="field">Микрорайон, дом, квартира<input name="address" maxlength="180" required autocomplete="off" value="'+escapeHTML(state.checkoutDraft?.address??state.profile.addresses[0]??'')+'" placeholder="Например, 1 мкр., д. 7"></label><button class="cta" type="submit">Сохранить адрес</button></form>')+'</section></div>');$('#modal').querySelector(pickup?'[data-menu-close]':'input').focus({preventScroll:true});}if(event.target.closest('[data-menu-close]')||event.target.classList.contains('menu-address-back')){closeModal();document.querySelector('[data-menu-address]')?.focus({preventScroll:true});}});
 document.addEventListener('submit',event=>{if(event.target.id!=='menu-address-form')return;event.preventDefault();const value=String(new FormData(event.target).get('address')||'').trim();if(!value){event.target.querySelector('input').setCustomValidity('Укажите адрес.');event.target.querySelector('input').reportValidity();return;}state.profile.addresses=[value,...state.profile.addresses.filter(v=>v!==value)];state.checkoutDraft={...state.checkoutDraft,address:value};closeModal();render();document.querySelector('[data-menu-address]')?.focus({preventScroll:true});});
