@@ -54,3 +54,11 @@ body.has-cart-dock .shell{padding-bottom:calc(112px + env(safe-area-inset-bottom
 .cart-dock-label{font-size:11px;line-height:1;font-weight:750}.cart-dock-count{position:absolute;right:-5px;top:-7px;min-width:26px;height:26px;padding:0 5px;display:grid;place-items:center;background:#191122;color:white;border:2px solid var(--paper);border-radius:8px;font-size:12px;line-height:1;font-variant-numeric:tabular-nums}
 .cart-dock:focus-visible{outline:3px solid var(--ink);outline-offset:5px}.cart-dock:active{box-shadow:0 2px 0 #372559;transform:translateY(3px)}
 @media(max-width:900px){body.search-active .cart-dock{top:calc(var(--search-top,0px) + var(--search-height,100dvh) - 98px - env(safe-area-inset-bottom,0px));bottom:auto}body.search-active.has-cart-dock .menu-list{padding-bottom:110px}}
+
+/* Balanced brand row and a quieter, compact cart control. */
+.bento-brandrow{align-items:flex-start;padding-top:4px;padding-right:18px}
+.bento-brandrow .m-profile.m-profile-person{margin-left:0;padding-top:0}
+.cart-dock{width:54px;height:54px;gap:0;padding:12px;border:1px solid color-mix(in srgb,var(--ink) 12%,transparent);border-radius:18px;background:var(--ink);color:var(--paper);box-shadow:0 3px 10px #00000016;bottom:calc(18px + env(safe-area-inset-bottom,0px))}
+.cart-dock>.ui-icon{width:25px;height:25px}.cart-dock-label{display:none}.cart-dock-count{right:-4px;top:-5px;min-width:21px;height:21px;padding:0 4px;border-radius:50%;background:#BBA1FF;color:#191122;font-size:10px;border:2px solid var(--paper)}
+.cart-dock:active{box-shadow:0 1px 4px #00000018;transform:scale(.96)}
+body.has-cart-dock .shell{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
