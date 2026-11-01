@@ -1,0 +1,842 @@
+{
+  "sizes": {
+    "thumb": 384,
+    "detail": 960
+  },
+  "images": [
+    {
+      "name": "adjara",
+      "originalBytes": 1347232,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 25528,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 146502,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "beef",
+      "originalBytes": 1705952,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 34686,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 216264,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "bread",
+      "originalBytes": 1504300,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 29360,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 173602,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "breast",
+      "originalBytes": 1595110,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 31584,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 179408,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "caucasian",
+      "originalBytes": 1232220,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 26512,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 136182,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "coffee",
+      "originalBytes": 1075016,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 21558,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 113788,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "dorado",
+      "originalBytes": 1421954,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 28408,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 170326,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "fries",
+      "originalBytes": 1416784,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 27146,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 141358,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "garlic",
+      "originalBytes": 1052478,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 20122,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 97392,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "grilled-veg",
+      "originalBytes": 1480940,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 33114,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 175900,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "gyros-chicken",
+      "originalBytes": 1504032,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 30672,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 154130,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "gyros-pork",
+      "originalBytes": 1521702,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 28548,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 148526,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "imereti",
+      "originalBytes": 1462504,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 29092,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 169186,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "lamb",
+      "originalBytes": 1611894,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 33690,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 200402,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "lula-chicken",
+      "originalBytes": 1527104,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 31138,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 178862,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "lula-red",
+      "originalBytes": 1550748,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 32268,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 189276,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "lunch-breast",
+      "originalBytes": 1549870,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 33672,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 185342,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "lunch-pork",
+      "originalBytes": 1605022,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 36922,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 196350,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "lunch-thigh",
+      "originalBytes": 1637908,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 35598,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 193920,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "megreli",
+      "originalBytes": 1563706,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 34760,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 182040,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "mors-1l-classic",
+      "originalBytes": 419984,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 10500,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 45574,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "mors-half",
+      "originalBytes": 332016,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 9930,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 39448,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "mushrooms",
+      "originalBytes": 1637492,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 34782,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 200148,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "onion",
+      "originalBytes": 1141820,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 22398,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 106706,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "ossetian-pie",
+      "originalBytes": 1431476,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 28874,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 156480,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "pizza-bbq",
+      "originalBytes": 1689720,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 37800,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 201978,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "pizza-chef",
+      "originalBytes": 1714974,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 39162,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 208594,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "pizza-chicken",
+      "originalBytes": 1551880,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 35882,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 180616,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "pizza-pepperoni",
+      "originalBytes": 1734122,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 38446,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 218078,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "pork",
+      "originalBytes": 1604260,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 35388,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 198576,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "potatoes",
+      "originalBytes": 1602588,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 33874,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 187914,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "ribs",
+      "originalBytes": 1694998,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 35042,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 214914,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "ribs-bbq",
+      "originalBytes": 1596008,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 34056,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 194218,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "salmon",
+      "originalBytes": 1620894,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 32032,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 196312,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "seabass",
+      "originalBytes": 1347206,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 25628,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 158556,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "shashlik-lavash",
+      "originalBytes": 1358524,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 27908,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 150726,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "shawarma-chicken",
+      "originalBytes": 1368418,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 28856,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 149778,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "shawarma-lula",
+      "originalBytes": 1499472,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 31738,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 159796,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "shawarma-pork",
+      "originalBytes": 1412522,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 29352,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 153964,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "shawarma-veg",
+      "originalBytes": 1468078,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 31242,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 158998,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "tea",
+      "originalBytes": 898732,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 21964,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 103166,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "thigh",
+      "originalBytes": 1627346,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 33748,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 193888,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "thin-bread",
+      "originalBytes": 1391002,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 28230,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 151642,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "turkey",
+      "originalBytes": 1570518,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 31282,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 180050,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "veg",
+      "originalBytes": 1365866,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 25508,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 141006,
+      "detailSize": [
+        960,
+        960
+      ]
+    },
+    {
+      "name": "wings",
+      "originalBytes": 1683800,
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "thumbBytes": 34642,
+      "thumbSize": [
+        384,
+        384
+      ],
+      "detailBytes": 199682,
+      "detailSize": [
+        960,
+        960
+      ]
+    }
+  ],
+  "totals": {
+    "originalBytes": 66130192,
+    "thumbBytes": 1382642,
+    "detailBytes": 7599564
+  },
+  "logoBytes": 11242
+}
