@@ -44,3 +44,13 @@ html[data-palette] .menu-categories{top:calc(72px + env(safe-area-inset-top,0px)
 body.search-active .search-profile{display:none}
 
 html[data-theme] body:not(.search-active) .menu-search-scene::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:env(safe-area-inset-top,0px);background:var(--paper);pointer-events:none}
+
+/* Жаровня cart dock: compact square, a lilac enamel surface and a count tab. */
+body[data-role=customer] .bottom{display:none}
+body[data-role=customer] .shell{padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+body.has-cart-dock .shell{padding-bottom:calc(112px + env(safe-area-inset-bottom,0px))}
+.cart-dock{position:fixed;z-index:40;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:76px;height:76px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px;border:1px solid #372559;border-radius:22px 22px 8px 22px;background:#BBA1FF;color:#191122;box-shadow:0 5px 0 #372559,0 8px 18px #21112b26;font-family:inherit;touch-action:manipulation}
+.cart-dock[hidden],body:has(#modal:not(:empty)) .cart-dock{display:none}
+.cart-dock-label{font-size:11px;line-height:1;font-weight:750}.cart-dock-count{position:absolute;right:-5px;top:-7px;min-width:26px;height:26px;padding:0 5px;display:grid;place-items:center;background:#191122;color:white;border:2px solid var(--paper);border-radius:8px;font-size:12px;line-height:1;font-variant-numeric:tabular-nums}
+.cart-dock:focus-visible{outline:3px solid var(--ink);outline-offset:5px}.cart-dock:active{box-shadow:0 2px 0 #372559;transform:translateY(3px)}
+@media(max-width:900px){body.search-active .cart-dock{top:calc(var(--search-top,0px) + var(--search-height,100dvh) - 98px - env(safe-area-inset-bottom,0px));bottom:auto}body.search-active.has-cart-dock .menu-list{padding-bottom:110px}}

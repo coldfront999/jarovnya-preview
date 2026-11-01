@@ -130,10 +130,10 @@ document.addEventListener('click',event=>{
   const selected=state.selected;if(!selected)return;
   const rect=(source||event.target.closest('[data-act=add]')).getBoundingClientRect();
   const picture={src:source?.currentSrc||selected.image,rect};
-  queueMicrotask(()=>{if(state.cart.length===count+1)menuFlyToCart(picture);});
+  setTimeout(()=>{if(state.cart.length===count+1)menuFlyToCart(picture);},0);
 },true);
 async function menuFlyToCart(picture){
-  const target=document.querySelector('.bottom [data-page=cart]');if(!target||document.hidden)return;
+  const target=document.querySelector('.cart-dock:not([hidden])');if(!target||document.hidden)return;
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const receipt=()=>target.animate([{opacity:.5},{opacity:1}],{duration:220,easing:'ease-out'});
   if(menuCartMotion==='quiet'||(menuCartMotion==='auto'&&reduced)||!picture.src){receipt();return;}
@@ -211,7 +211,7 @@ document.addEventListener('click',event=>{
     if(next===0)state.cart=state.cart.filter(v=>v.lineId!==l.lineId);else l.qty=next;
     const direction=quantity.dataset.change;render();
     const focus=document.querySelector('[data-menu-quantity="'+l.lineId+'"][data-change="'+direction+'"]');
-    (focus||document.querySelector('.bottom [data-page=cart]'))?.focus({preventScroll:true});
+    (focus||document.querySelector('.page-title button'))?.focus({preventScroll:true});
     if(next===0)toast('Удалено из корзины: '+l.name);return;
   }
   const edit=event.target.closest('[data-menu-edit]');
