@@ -1,5 +1,5 @@
 /* Isolated bento experiment. Prices and ordering stay with the existing handlers. */
-const bentoPalettes = ['pop', 'earth', 'studio'];
+const bentoPalettes = ['pop'];
 const bentoPaletteKey = 'jarovnya-bento-palette-20261101';
 let bentoPalette = 'pop';
 try { bentoPalette = localStorage.getItem(bentoPaletteKey) || bentoPalette; } catch {}
@@ -27,7 +27,7 @@ header = function () {
     '<span>Губкинский</span>' + menuProfile() + '</div><div class="bento-address-row"><button class="reference-location" data-menu-address aria-label="' +
     (state.mode === 'pickup' ? 'Адрес самовывоза' : 'Адрес доставки') + '">' + icon('pin', 19) + '<strong>' +
     escapeHTML(state.mode === 'pickup' ? '1 мкр., д. 7 · ТЦ «Русь»' : state.profile.addresses[0] || 'Куда привезти?') +
-    '</strong>' + icon('arrow', 14) + '</button><button class="reference-search" data-menu-search aria-label="Поиск блюда" aria-controls="menu-search-panel" aria-expanded="' +
+    '</strong></button><button class="reference-search" data-menu-search aria-label="Поиск блюда" aria-controls="menu-search-panel" aria-expanded="' +
     menuSearchOpen + '">' + icon('search', 20) + '</button></div>' + menuModes() + '</header>';
 };
 
@@ -61,7 +61,7 @@ renderMenu = function () {
   return header() + (state.time !== 'normal' ? '<p class="menu-hours">' + hours + '</p>' : '') +
     '<div id="menu-search-panel" class="menu-search-scene" ' + (menuSearchOpen ? '' : 'hidden') + '><label class="menu-search">' + icon('search', 20) +
     '<input id="search" type="search" autocomplete="off" aria-label="Поиск блюда" placeholder="Найти блюдо" value="' + escapeHTML(state.query) + '"></label></div>' +
-    (!state.query && state.category === 'Популярное' ? bentoBoard() : '') +
+    (!state.query ? bentoBoard() : '') +
     '<section class="menu-catalog-wrap" aria-label="Блюда меню"><div class="menu-catalog"><nav class="menu-categories" aria-label="Категории меню">' + CATEGORIES.map(c =>
       '<button data-category="' + escapeHTML(c) + '" aria-pressed="' + (state.category === c) + '">' + escapeHTML(c) + '</button>').join('') +
     '</nav><div class="menu-heading"><h2>' + escapeHTML(state.query ? 'Нашлось в меню' : state.category) + '</h2><span>' + dishes.length +
@@ -97,5 +97,17 @@ window.addEventListener('online', () => document.querySelectorAll('img[data-imag
   delete image.dataset.imageFailed;
   const url = new URL(image.src); url.searchParams.set('retry', Date.now()); image.src = url.href;
 }));
+// Reuse working profile forms and cart calculations; improve their hierarchy.
+const bentoBaseProfile = renderProfile;
+renderProfile = function () {
+  const shortcut = '<div class="bento-profile-links"><button data-page="orders">' + icon('list',24) + '<span>Мои заказы</span></button><button data-page="favorites">' + icon('heart',24) + '<span>Избранное</span></button></div>';
+  return bentoBaseProfile().replace('class="content"','class="content bento-profile"').replace('<div class="panel">',shortcut+'<div class="panel">').replace('<h3>Мои адреса</h3>','<div class="row"><h3>Мои адреса</h3><button class="secondary" data-menu-address>Изменить</button></div>');
+};
+const bentoBaseCart = renderCart;
+renderCart = function () {
+  const context = '<div class="bento-cart-context">' + icon(state.mode==='pickup'?'store':'truck',26) + '<div><strong>' + (state.mode==='pickup'?'Самовывоз':'Доставка') + '</strong><small>' + escapeHTML(state.mode==='pickup'?'1 мкр., д. 7 · ТЦ «Русь»':state.checkoutDraft?.address||state.profile.addresses[0]||'Укажите адрес получения') + '</small></div><button data-menu-address>' + (state.mode==='pickup'?'Адрес':'Изменить') + '</button></div>';
+  const html=bentoBaseCart().replace('class="content"','class="content bento-cart"');
+  return state.cart.length?html.replace('</h1></div>','</h1></div>'+context):html;
+};
 menuCatalogSignature = null;
 render();

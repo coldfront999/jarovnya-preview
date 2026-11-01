@@ -36,3 +36,28 @@ html[data-theme] .menu-quantity::before{content:none}
 html[data-theme] .menu-quantity button,
 html[data-theme] .qty button,
 html[data-theme] .plus{background:transparent;color:var(--ink);border:0;box-shadow:none}
+/* The duotone SVG itself carried a square behind the plus. */
+.menu-price .ui-icon [opacity],.plus .ui-icon [opacity]{display:none}
+.bento-shawarma>img{bottom:-16px;right:-8px;width:95px;height:95px}
+.bento-pies>img{bottom:-18px;right:-12px;width:100px;height:100px}
+html[data-theme] .bottom{background:#fff;border-top:1px solid #ddd;color:#000}
+html[data-theme] .bottom button,html[data-theme] .bottom a{color:#000;font-weight:650;opacity:1}
+html[data-theme] .bottom .nav-contact{color:#000;font-weight:650;opacity:1}
+html[data-theme] .bottom button.active{background:#F7D041;color:#000}
+.bottom .ui-icon [opacity]{display:none}
+.bottom .bubble{background:#000;color:#fff}
+.bento-profile-links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}
+.bento-profile-links button{padding:17px 12px;min-height:94px;border-radius:18px;text-align:left;background:var(--bento-main);color:#0D0D0D;font-weight:750;display:flex;flex-direction:column;gap:10px}
+.bento-profile-links button:nth-child(2){background:var(--bento-side)}
+.bento-profile .profile-avatar{background:var(--bento-main);color:#0D0D0D;width:64px;height:64px;border-radius:20px}
+.bento-profile .panel{box-shadow:none;border:0;background:var(--soft);padding:18px;margin-top:14px}
+.bento-profile .field{margin-top:16px}
+.bento-cart-context{background:var(--soft);border-radius:18px;padding:16px;margin-bottom:8px;display:flex;gap:12px;align-items:center}
+.bento-cart-context strong,.bento-cart-context small{display:block;line-height:1.5}
+.bento-cart-context small{color:var(--muted);font-size:12px}
+.bento-cart-context button{margin-left:auto;background:transparent;color:var(--ink);text-decoration:underline;min-height:44px;font-size:12px}
+.bento-cart .panel{background:var(--soft);border:0;box-shadow:none;padding:18px}
+.bento-cart .empty{background:var(--bento-main);color:#0D0D0D;border-radius:22px;padding:28px 20px;margin-top:12px}
+.bento-cart .empty p{color:#353827}
+.bento-cart .empty .cta{background:#0D0D0D;color:white}
+.bento-cart .cartline{padding:20px 0}

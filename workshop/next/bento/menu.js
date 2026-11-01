@@ -46,7 +46,14 @@ render=function(){
   const previousCategory=previous?.querySelector('[data-category][aria-pressed=true]')?.dataset.category;
   if(previous)menuCategoryScroll=previous.scrollLeft;
   document.body.dataset.role=state.role;document.body.dataset.page=state.page;
-  menuOriginalRender();
+  const catalogChange=state.role==='customer'&&state.page==='menu'&&previousCategory&&previousCategory!==state.category&&!state.query&&!menuSearchOpen&&document.querySelector('.bento-board');
+  if(catalogChange){
+    const fresh=document.createElement('div');setHTML(fresh,renderMenu());
+    for(const selector of ['.menu-heading','.menu-list'])document.querySelector(selector).replaceWith(fresh.querySelector(selector));
+    previous.querySelectorAll('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.category===state.category)));
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelector('.menu-list').animate([{opacity:.65,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:180,easing:'ease-out'});
+    menuSaveState();
+  }else menuOriginalRender();
   menuCatalogSignature=signature;
   const categories=document.querySelector('.menu-categories');
   if(categories){
@@ -81,7 +88,7 @@ const menuOriginalProduct=renderProduct;
 renderProduct=function(){menuOriginalProduct();const p=state.selected;if(p.unit==='шт'||/порци/i.test(p.unit)||(p.category==='Хачапури'||p.category==='Пироги и пицца')){document.querySelector('.product-unit').textContent=money(p.priceKopecks??Math.round(p.price*100));}if(!menuIsLavash(p))return;const sheet=document.querySelector('#modal .sheet');sheet.setAttribute('aria-label','Шашлык в лаваше');sheet.querySelector('h2').textContent='Шашлык в лаваше';const options=document.createElement('fieldset');options.className='menu-lavash-options';options.setAttribute('aria-label','Вес шашлыка в лаваше');options.innerHTML='<legend>Выберите вес</legend><div>'+MENU.filter(menuIsLavash).map(v=>'<button type="button" data-menu-lavash="'+v.id+'" aria-pressed="'+(v.id===p.id)+'" '+(allowed(v)?'':'disabled')+'><span>'+(v.id==='lavash-150'?'150 г':'200 г')+'</span><strong>'+money(v.priceKopecks??Math.round(v.price*100))+'</strong>'+(!allowed(v)?'<small>Недоступно</small>':'')+'</button>').join('')+'</div>';sheet.querySelector('.product-unit').after(options);};
 
 // Keep the two real catalog IDs and prices when choosing the lavash portion.
-document.addEventListener('click',event=>{const portion=event.target.closest('[data-menu-lavash]');if(portion){const variant=item(portion.dataset.menuLavash);if(!variant||!menuIsLavash(variant)||!allowed(variant))return;state.selected={...state.selected,...variant};document.querySelectorAll('[data-menu-lavash]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.menuLavash===variant.id)));document.querySelector('.product-unit').textContent=money(variant.priceKopecks);document.querySelector('#product-price').textContent=money(Rules.lineKopecks(state.selected));return;}if(event.target.closest('[data-menu-fav-lavash]')){const marked=state.favorites.some(id=>id==='lavash-150'||id==='lavash-200');state.favorites=state.favorites.filter(id=>id!=='lavash-150'&&id!=='lavash-200');if(!marked)state.favorites.push('lavash-150');render();return;}const dish=event.target.closest('[data-menu-product]');if(dish&&!event.target.closest('button,a,input'))openProduct(dish.dataset.menuProduct);});
+document.addEventListener('click',event=>{const portion=event.target.closest('[data-menu-lavash]');if(portion){const variant=item(portion.dataset.menuLavash);if(!variant||!menuIsLavash(variant)||!allowed(variant))return;state.selected={...state.selected,...variant};document.querySelectorAll('[data-menu-lavash]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.menuLavash===variant.id)));document.querySelector('.product-unit').textContent=money(variant.priceKopecks);document.querySelector('#product-price').textContent=Number.isInteger(state.selected.qty)&&state.selected.qty>=1&&state.selected.qty<=50?money(Rules.lineKopecks(state.selected)):"";return;}if(event.target.closest('[data-menu-fav-lavash]')){const marked=state.favorites.some(id=>id==='lavash-150'||id==='lavash-200');state.favorites=state.favorites.filter(id=>id!=='lavash-150'&&id!=='lavash-200');if(!marked)state.favorites.push('lavash-150');render();return;}const dish=event.target.closest('[data-menu-product]');if(dish&&!event.target.closest('button,a,input'))openProduct(dish.dataset.menuProduct);});
 
 // Observe a successful cart mutation without bypassing the existing validation.
 document.addEventListener('click',event=>{
