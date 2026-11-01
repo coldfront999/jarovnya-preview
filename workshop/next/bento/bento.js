@@ -32,12 +32,12 @@ header = function () {
 
 function bentoBoard() {
   return '<section class="bento-board" aria-label="Выберите, что приготовить">' +
-    '<button class="bento-tile bento-grill" data-category="Мангал"><span class="bento-tile-title">Мангал</span><span class="bento-tile-caption">С огня к столу</span><span class="bento-tile-label">' + '' +
-    '</span><img src="images/thumb/pork.webp" alt="" width="384" height="384" fetchpriority="high" decoding="async"></button>' +
-    '<button class="bento-tile bento-shawarma" data-category="Шаурма"><span class="bento-tile-title">Шаурма</span>' + '' +
-    '<img src="images/thumb/shawarma-chicken.webp" alt="" width="384" height="384" decoding="async"></button>' +
-    '<button class="bento-tile bento-pies" data-category="Пироги и пицца"><span class="bento-tile-title">Пироги<br>и пицца</span>' + '' +
-    '<img src="images/thumb/ossetian-pie.webp" alt="" width="384" height="384" decoding="async"></button></section>';
+    '<button class="bento-tile bento-photo-tile bento-grill" data-category="Мангал"><span class="bento-tile-title">Мангал</span><span class="bento-tile-caption">С огня к столу</span><span class="bento-tile-label">' + '' +
+    '</span><img src="images/categories/mangal.webp" alt="" width="384" height="384" fetchpriority="high" decoding="async"></button>' +
+    '<button class="bento-tile bento-photo-tile bento-shawarma" data-category="Шаурма"><span class="bento-tile-title">Шаурма</span>' + '' +
+    '<img src="images/categories/shawarma.webp" alt="" width="384" height="384" decoding="async"></button>' +
+    '<button class="bento-tile bento-photo-tile bento-pies" data-category="Пироги и пицца"><span class="bento-tile-title">Пироги<br>и пицца</span>' + '' +
+    '<img src="images/categories/pies.webp" alt="" width="384" height="384" decoding="async"></button></section>';
 }
 
 card = function (p) {

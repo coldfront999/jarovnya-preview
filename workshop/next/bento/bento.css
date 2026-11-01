@@ -61,3 +61,12 @@ html[data-theme] .bottom button.active{background:transparent;color:#000} html[d
 .bento-cart .empty p{color:#353827}
 .bento-cart .empty .cta{background:#0D0D0D;color:white}
 .bento-cart .cartline{padding:20px 0}
+
+/* Approved category photographs: full tile, stable crop, readable labels. */
+.bento-photo-tile>img{inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;transform:none;filter:none;z-index:0}
+.bento-photo-tile:not(:disabled):hover img{transform:none}
+.bento-photo-tile .bento-tile-title{color:#0D0D0D;text-shadow:none}
+.bento-photo-tile.bento-shawarma .bento-tile-title{color:#fff;text-shadow:0 1px 3px #30123a80}
+.bento-photo-tile.bento-grill>img{object-position:50% 50%}
+.bento-photo-tile.bento-pies .bento-tile-title{font-size:17px;line-height:1.08}
+.bento-photo-tile .bento-tile-caption{color:#0D0D0D}
