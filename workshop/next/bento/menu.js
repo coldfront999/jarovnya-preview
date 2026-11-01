@@ -83,21 +83,29 @@ document.addEventListener('input',event=>{
   state.query=event.target.value;
   render();
 },true);
-function menuRevealSearch(){
-  const search=document.activeElement;
-  if(search?.id!=='search'||!matchMedia('(max-width: 600px)').matches)return;
-  const viewport=window.visualViewport;
-  const top=(viewport?.offsetTop||0)+12;
-  const panel=search.closest('.menu-search-scene');
-  if(panel)window.scrollBy({top:panel.getBoundingClientRect().top-top,behavior:'instant'});
+// A separate search surface avoids scroll/keyboard feedback loops on mobile.
+function menuSearchViewport(){
+ if(!document.body.classList.contains('search-active'))return;
+ const v=window.visualViewport;
+ document.documentElement.style.setProperty('--search-height',(v?.height||window.innerHeight)+'px');
+ document.documentElement.style.setProperty('--search-top',(v?.offsetTop||0)+'px');
 }
-let menuSearchViewportTimer;
-document.addEventListener('focusin',event=>{if(event.target.id==='search')menuRevealSearch();});
-// Run once after the keyboard settles, rather than chasing its animation frames.
-window.visualViewport?.addEventListener('resize',()=>{
-  clearTimeout(menuSearchViewportTimer);
-  if(document.activeElement?.id==='search')menuSearchViewportTimer=setTimeout(menuRevealSearch,120);
+function closeSearchSurface(){
+ document.body.classList.remove('search-active');
+ document.body.style.overflow='';
+ document.getElementById('search')?.blur();
+ state.query='';render();
+}
+document.addEventListener('focusin',event=>{
+ if(event.target.id!=='search'||!matchMedia('(max-width: 900px)').matches)return;
+ document.body.classList.add('search-active');
+ document.body.style.overflow='hidden';
+ menuSearchViewport();
 });
+window.visualViewport?.addEventListener('resize',menuSearchViewport);
+window.visualViewport?.addEventListener('scroll',menuSearchViewport);
+document.addEventListener('click',event=>{if(event.target.closest('[data-close-search]'))closeSearchSurface();});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&document.body.classList.contains('search-active')&&!document.getElementById('modal').childElementCount){event.preventDefault();closeSearchSurface();}});
 document.addEventListener('change',event=>{for(const k of Object.keys(menuChoices))if(event.target.id==='menu-'+k+'-select'&&menuChoices[k].includes(event.target.value)){menuAppearance[k]=event.target.value;applyMenuAppearance();}});
 document.addEventListener('click',event=>{const trigger=event.target.closest('[data-menu-address],.m-header [data-mode=delivery]');if(trigger){const pickup=state.mode==='pickup'&&!trigger.hasAttribute('data-profile-address');setHTML($('#modal'),'<div class="sheet-back menu-address-back"><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="menu-address-title"><button class="close" data-menu-close aria-label="Закрыть адрес">'+icon('back',22)+'</button><h2 id="menu-address-title">'+(pickup?'Где забрать заказ':'Адрес доставки')+'</h2>'+(pickup?'<p class="menu-pickup-address">Губкинский, 1 микрорайон, д. 7, ТЦ «Русь», 1 этаж</p>':'<form id="menu-address-form"><label class="field">Микрорайон, дом, квартира<input name="address" maxlength="180" required autocomplete="off" value="'+escapeHTML(state.checkoutDraft?.address??state.profile.addresses[0]??'')+'" placeholder="Например, 1 мкр., д. 7"></label><button class="cta" type="submit">Сохранить адрес</button></form>')+'</section></div>');$('#modal').querySelector(pickup?'[data-menu-close]':'input').focus({preventScroll:true});}if(event.target.closest('[data-menu-close]')||event.target.classList.contains('menu-address-back')){closeModal();document.querySelector('[data-menu-address]')?.focus({preventScroll:true});}});
 document.addEventListener('submit',event=>{if(event.target.id!=='menu-address-form')return;event.preventDefault();const value=String(new FormData(event.target).get('address')||'').trim();if(!value){event.target.querySelector('input').setCustomValidity('Укажите адрес.');event.target.querySelector('input').reportValidity();return;}state.profile.addresses=[value,...state.profile.addresses.filter(v=>v!==value)];state.checkoutDraft={...state.checkoutDraft,address:value};closeModal();render();document.querySelector('[data-menu-address]')?.focus({preventScroll:true});});
