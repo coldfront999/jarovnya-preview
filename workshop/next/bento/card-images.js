@@ -9,7 +9,7 @@ for(const product of MENU){
 }
 
 // Owner-described serving variants, workshop preview only (12 November 2026).
-for(const [id,name] of Object.entries({'lula-mix':'lula-red-two','lula-pork':'lula-red-two','lula-chicken':'lula-chicken-two',wings:'wings-whole',potatoes:'potatoes-grill-diagonal',onion:'onion-plate','lunch-pork':'lunch-pork-v2','lunch-breast':'lunch-breast-v2','lunch-thigh':'lunch-thigh-v2'})){
+for(const [id,name] of Object.entries({'lula-mix':'lula-red-two','lula-pork':'lula-red-two','lula-chicken':'lula-chicken-two',wings:'wings-whole',potatoes:'potatoes-table-angle',onion:'onion-plate','lunch-pork':'lunch-pork-v2','lunch-breast':'lunch-breast-v2','lunch-thigh':'lunch-thigh-v2'})){
  const p=MENU.find(p=>p.id===id); if(!p)continue;
  p.image='images/thumb/'+name+'.webp';p.detailImage='images/detail/'+name+'.webp';CARD_IMAGE_ASSETS[id]=p.image;
 }

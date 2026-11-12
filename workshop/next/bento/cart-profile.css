@@ -13,3 +13,6 @@ body[data-role=customer] .bento-cart .cart-receipt{border:0;background:var(--sof
 /* Fill the existing photo area without changing actual serving size. */
 .menu-photo img[src*="/lunch-"]{transform:scale(1.4)}
 #modal .product-screen .big-food>img[src*="/lunch-"]{transform:scale(1.4)}
+
+/* Portrait first; editing lives in a separate sheet. */
+.account-identity-stacked{position:relative;padding-top:30px}.account-edit-corner{position:absolute;right:10px;top:10px;width:44px;height:44px;display:grid;place-items:center;border:0;background:transparent;color:#191122;border-radius:50%}.account-edit-corner:hover{background:#0000000a}.account-edit-corner:focus-visible{outline:2px solid currentColor;outline-offset:2px}.account-identity .account-avatar{cursor:default}.account-sheet>.account-hero-edit{margin:16px 0}.account-sheet>details>p{font-size:13px;line-height:1.6}
