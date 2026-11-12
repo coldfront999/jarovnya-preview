@@ -26,7 +26,7 @@ const BentoPortions = {
   },
   detail(p) { return '1 порция: ' + this.specs[p.id]; },
   requested(p) { return this.label(p) + ' · ' + this.specs[p.id] + (this.count(p)>1?' каждая':''); },
-  rate(p) { return money((p.priceKopecks ?? Math.round(p.price * 100)) * 10) + ' / кг'; },
+  rate(p) { return money(p.priceKopecks ?? Math.round(p.price * 100)) + ' / 100 г'; },
   select(p, n) {
     if (!Number.isInteger(n) || n < 1 || n > 50) return false;
     p.requestedPortions = n;
@@ -38,17 +38,10 @@ const BentoPortions = {
 
 const portionBaseCard = card;
 card = function(p) {
-  if (!BentoPortions.has(p)) return portionBaseCard(p);
-  const host = document.createElement('div'); setHTML(host, portionBaseCard(p));
-  const price = host.querySelector('[data-menu-price]');
-  if (price) {
-    setHTML(price, '<span>' + BentoPortions.rate(p) + '</span>' + icon('plus',18));
-    price.setAttribute('aria-label', 'Выбрать порции: ' + p.name + ', ' + BentoPortions.rate(p));
-  }
-  const detail = document.createElement('small'); detail.className = 'portion-description';
-  detail.textContent = BentoPortions.detail(p);
-  host.querySelector('.menu-copy')?.append(detail);
-  return host.innerHTML;
+  const html = portionBaseCard(p);
+  if (!BentoPortions.has(p)) return html;
+  // Keep the familiar menu price; portion details belong inside the product.
+  return html.replace('Выбрать вес:', 'Выбрать порции:');
 };
 
 const portionBaseProduct = renderProduct;

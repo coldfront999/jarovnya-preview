@@ -9,3 +9,7 @@ body[data-role=customer] .bento-cart .cart-receipt{border:0;background:var(--sof
 @media(max-width:360px){.cart-items-surface{padding:0 10px}.cart-items-surface .thumb{width:64px;height:64px;flex-basis:64px}.bento-cart-context{flex-wrap:wrap}.bento-cart-context>button{margin-left:36px}}
 
 .portion-description{display:block;font-size:11px;line-height:1.4;color:var(--muted);margin:7px 0}.portion-picker .weight-options button{min-height:44px}.portion-picker .field{margin-top:12px}.portion-picker p{line-height:1.5}.portion-picker input{max-width:130px}
+
+/* Fill the existing photo area without changing actual serving size. */
+.menu-photo img[src*="/lunch-"]{transform:scale(1.4)}
+#modal .product-screen .big-food>img[src*="/lunch-"]{transform:scale(1.4)}
