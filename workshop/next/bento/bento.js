@@ -102,9 +102,17 @@ renderProfile = function () {
 };
 const bentoBaseCart = renderCart;
 renderCart = function () {
-  const context = '<div class="bento-cart-context">' + icon(state.mode==='pickup'?'store':'truck',26) + '<div><strong>' + (state.mode==='pickup'?'Самовывоз':'Доставка') + '</strong><small>' + escapeHTML(state.mode==='pickup'?'1 мкр., д. 7 · ТЦ «Русь»':state.checkoutDraft?.address||state.profile.addresses[0]||'Укажите адрес получения') + '</small></div><button data-menu-address>' + (state.mode==='pickup'?'Адрес':'Изменить') + '</button></div>';
-  const html=bentoBaseCart().replace('class="content"','class="content bento-cart"');
-  return state.cart.length?html.replace('</h1></div>','</h1></div>'+context):html;
+  if(!state.cart.length)return `<div class="content bento-cart cart-empty-page">${pageTitle('Корзина')}<section class="cart-empty-story"><div class="cart-empty-art" aria-hidden="true"><span class="cart-orbit cart-orbit-one"></span><span class="cart-orbit cart-orbit-two"></span>${icon('bag',88)}</div><h2>Соберём ваш заказ?</h2><p>Мясо с мангала, шаурма или горячий пирог — начните с любимого блюда.</p><button class="cta" data-page="menu">Выбрать блюда ${icon('arrow',18)}</button><button class="cart-favorites-link" data-page="favorites">${icon('heart',18)} Из избранного</button></section><div class="cart-empty-note">${icon('chef',23)}<span>Готовим после подтверждения заказа.<br>Доставка или самовывоз — на ваш выбор.</span></div></div>`;
+  const host=document.createElement('div');setHTML(host,bentoBaseCart());
+  const content=host.querySelector('.content');content.classList.add('bento-cart');
+  const count=state.cart.reduce((n,l)=>n+(l.qty||1),0);
+  const intro=document.createElement('div');intro.className='cart-overview';setHTML(intro,`<span>В заказе: ${count}</span><button data-page="menu">Ещё блюда ${icon('plus',16)}</button>`);content.querySelector('.page-title').after(intro);
+  const context=document.createElement('div');context.className='bento-cart-context';setHTML(context,icon(state.mode==='pickup'?'store':'truck',25)+`<div><strong>${state.mode==='pickup'?'Заберёте сами':'Привезём к вам'}</strong><small>${escapeHTML(state.mode==='pickup'?'1 мкр., д. 7 · ТЦ «Русь»':state.checkoutDraft?.address||state.profile.addresses[0]||'Выберите адрес доставки')}</small></div><button data-menu-address>${state.mode==='pickup'?'Адрес':'Изменить'}</button>`);intro.after(context);
+  const lines=Array.from(content.querySelectorAll(':scope > .cartline'));
+  if(lines.length){const list=document.createElement('section');list.className='cart-items-surface';list.setAttribute('aria-label','Блюда в корзине');lines[0].before(list);lines.forEach(l=>list.append(l));}
+  const receipt=content.querySelector('.panel:has(.summary)');if(receipt){receipt.classList.add('cart-receipt');const title=document.createElement('h3');title.textContent='Ваш заказ';receipt.prepend(title);}
+  const checkout=content.querySelector('[data-act=checkout]');if(checkout)checkout.classList.add('cart-checkout-button');
+  return host.innerHTML;
 };
 menuCatalogSignature = null;
 render();

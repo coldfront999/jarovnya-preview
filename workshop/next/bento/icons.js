@@ -5,3 +5,6 @@ function jarovnyaIcon(name,size=22){const body=JarovnyaIconPaths[name]||Jarovnya
 // Open navigation arrows, not triangular play icons.
 JarovnyaIconPaths.back='<path d="M152 48 L72 128 L152 208 M80 128 H224" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>';
 JarovnyaIconPaths.arrow='<path d="M104 48 L184 128 L104 208 M32 128 H176" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>';
+
+// A soft shopping bag for the new cart, without the triangular basket handle.
+JarovnyaIconPaths.bag='<path d="M60 80 H196 L208 216 H48 Z" fill="none" stroke="currentColor" stroke-width="16" stroke-linejoin="round"/><path d="M92 96 V64 A36 36 0 0 1 164 64 V96" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round"/><path d="M101 154 Q128 178 155 154" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round"/>';

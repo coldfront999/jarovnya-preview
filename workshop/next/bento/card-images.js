@@ -7,3 +7,9 @@ for(const product of MENU){
   product.image=path;
   product.detailImage='images/detail/'+name+'.webp';
 }
+
+// Owner-described serving variants, workshop preview only (12 November 2026).
+for(const [id,name] of Object.entries({potatoes:'potatoes-portion-v2',onion:'onion-white-v2','lunch-pork':'lunch-pork-v2','lunch-breast':'lunch-breast-v2','lunch-thigh':'lunch-thigh-v2'})){
+ const p=MENU.find(p=>p.id===id); if(!p)continue;
+ p.image='images/thumb/'+name+'.webp';p.detailImage='images/detail/'+name+'.webp';CARD_IMAGE_ASSETS[id]=p.image;
+}
